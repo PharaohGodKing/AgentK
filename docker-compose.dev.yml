@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  agentk:
+    build: .
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+      - ./data:/app/data
+    environment:
+      - APP_ENV=development
+      - DATABASE_TYPE=sqlite
+      - DATABASE_URL=sqlite:///./data/databases/sqlite/main.db
+    command: uvicorn backend.main:app --host 0.0.0.0 --port 8000 --reload
+
+  qdrant:
+    image: qdrant/qdrant
+    ports:
+      - "6333:6333"
+      - "6334:6334"
+    volumes:
+      - ./data/memory/qdrant:/qdrant/storage

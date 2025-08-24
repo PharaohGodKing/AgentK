@@ -1,0 +1,86 @@
+{
+  "test_environment": {
+    "name": "Test Environment",
+    "description": "Configuration for testing environment",
+    "database": {
+      "type": "sqlite",
+      "path": "./test.db",
+      "create_tables": true
+    },
+    "llm_services": {
+      "lm_studio": {
+        "enabled": true,
+        "base_url": "http://localhost:1234",
+        "timeout": 30,
+        "default_model": "mistral"
+      },
+      "ollama": {
+        "enabled": true,
+        "base_url": "http://localhost:11434",
+        "timeout": 30,
+        "default_model": "llama2"
+      }
+    },
+    "logging": {
+      "level": "DEBUG",
+      "file": "./test.log",
+      "max_size": 10485760,
+      "backup_count": 5
+    },
+    "api": {
+      "host": "127.0.0.1",
+      "port": 8000,
+      "debug": true,
+      "cors_origins": ["http://localhost:3000"]
+    },
+    "security": {
+      "secret_key": "test_secret_key_change_in_production",
+      "token_expire_minutes": 1440,
+      "hashing_algorithm": "HS256"
+    },
+    "storage": {
+      "upload_path": "./test_uploads",
+      "max_file_size": 10485760,
+      "allowed_extensions": [".txt", ".pdf", ".docx", ".md", ".json", ".csv"]
+    },
+    "performance": {
+      "max_workers": 10,
+      "timeout": 30,
+      "retry_attempts": 3
+    }
+  },
+  "test_agents": {
+    "research_agent": {
+      "name": "Test Research Agent",
+      "model": "lm_studio",
+      "capabilities": ["research", "analysis"],
+      "parameters": {
+        "research_depth": "comprehensive",
+        "max_sources": 5
+      }
+    },
+    "coding_agent": {
+      "name": "Test Coding Agent",
+      "model": "ollama",
+      "capabilities": ["code_generation", "debugging"],
+      "parameters": {
+        "preferred_language": "python",
+        "include_comments": true
+      }
+    }
+  },
+  "test_workflows": {
+    "simple_research": {
+      "name": "Test Research Workflow",
+      "description": "Simple research workflow for testing",
+      "steps": [
+        {
+          "agent": "research_agent",
+          "action": "research_topic",
+          "inputs": ["query"],
+          "outputs": ["results"]
+        }
+      ]
+    }
+  }
+}

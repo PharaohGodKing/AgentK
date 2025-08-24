@@ -1,0 +1,34 @@
+.icon {
+  width: 24px;
+  height: 24px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.icon-dashboard {
+  background: url('../assets/icons/dashboard.svg') no-repeat center;
+}
+
+.icon-agents {
+  background: url('../assets/icons/agents.svg') no-repeat center;
+}
+
+.icon-workflows {
+  background: url('../assets/icons/workflows.svg') no-repeat center;
+}
+
+.icon-settings {
+  background: url('../assets/icons/settings.svg') no-repeat center;
+}
+
+.icon-chat {
+  background: url('../assets/icons/chat.svg') no-repeat center;
+}
+
+.icon-memory {
+  background: url('../assets/icons/memory.svg') no-repeat center;
+}
+
+.icon-plugin {
+  background: url('../assets/icons/plugin.svg') no-repeat center;
+}

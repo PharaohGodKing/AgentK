@@ -1,0 +1,88 @@
+{
+  "name": "Content Writing Workflow",
+  "description": "Complete content creation workflow from ideation to publishing",
+  "version": "1.1",
+  "created_by": "system",
+  "agents": ["writing_assistant", "research_assistant", "analyst", "archivist"],
+  "steps": [
+    {
+      "id": "topic_research",
+      "agent": "research_assistant",
+      "action": "research_topic",
+      "inputs": ["topic"],
+      "outputs": ["research_materials"],
+      "parameters": {
+        "depth": "comprehensive",
+        "include_statistics": true
+      }
+    },
+    {
+      "id": "outline_creation",
+      "agent": "writing_assistant",
+      "action": "create_outline",
+      "inputs": ["research_materials"],
+      "outputs": ["content_outline"],
+      "parameters": {
+        "structure": "logical_flow"
+      }
+    },
+    {
+      "id": "content_development",
+      "agent": "writing_assistant",
+      "action": "write_content",
+      "inputs": ["content_outline", "research_materials"],
+      "outputs": ["draft_content"],
+      "parameters": {
+        "tone": "professional",
+        "target_length": "auto"
+      }
+    },
+    {
+      "id": "analysis_review",
+      "agent": "analyst",
+      "action": "review_content",
+      "inputs": ["draft_content"],
+      "outputs": ["feedback"],
+      "parameters": {
+        "check_coherence": true,
+        "check_accuracy": true
+      }
+    },
+    {
+      "id": "revision",
+      "agent": "writing_assistant",
+      "action": "revise_content",
+      "inputs": ["draft_content", "feedback"],
+      "outputs": ["final_content"],
+      "parameters": {
+        "max_revisions": 3
+      }
+    },
+    {
+      "id": "formatting",
+      "agent": "writing_assistant",
+      "action": "format_content",
+      "inputs": ["final_content"],
+      "outputs": ["formatted_content"],
+      "parameters": {
+        "target_format": "html"
+      }
+    },
+    {
+      "id": "archival",
+      "agent": "archivist",
+      "action": "store_content",
+      "inputs": ["formatted_content", "research_materials"],
+      "outputs": ["storage_confirmation"],
+      "parameters": {
+        "categorize": true,
+        "add_metadata": true
+      }
+    }
+  ],
+  "error_handling": {
+    "retry_attempts": 2,
+    "fallback_agent": "analyst",
+    "notify_on_failure": true
+  }
+}

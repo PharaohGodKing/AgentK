@@ -1,0 +1,80 @@
+{
+  "name": "Memory Archival Workflow",
+  "description": "System for archiving and organizing agent memories",
+  "version": "1.0",
+  "created_by": "system",
+  "agents": ["archivist", "analyst"],
+  "steps": [
+    {
+      "id": "memory_collection",
+      "agent": "archivist",
+      "action": "collect_memories",
+      "inputs": ["time_period"],
+      "outputs": ["raw_memories"],
+      "parameters": {
+        "scope": "all_agents",
+        "time_range": "last_7_days"
+      }
+    },
+    {
+      "id": "categorization",
+      "agent": "analyst",
+      "action": "categorize_memories",
+      "inputs": ["raw_memories"],
+      "outputs": ["categorized_memories"],
+      "parameters": {
+        "auto_generate_categories": true,
+        "confidence_threshold": 0.7
+      }
+    },
+    {
+      "id": "importance_scoring",
+      "agent": "analyst",
+      "action": "score_importance",
+      "inputs": ["categorized_memories"],
+      "outputs": ["scored_memories"],
+      "parameters": {
+        "factors": ["relevance", "frequency", "recency"],
+        "weighting": "balanced"
+      }
+    },
+    {
+      "id": "compression",
+      "agent": "archivist",
+      "action": "compress_memories",
+      "inputs": ["scored_memories"],
+      "outputs": ["compressed_memories"],
+      "parameters": {
+        "compression_ratio": 0.3,
+        "preserve_key_info": true
+      }
+    },
+    {
+      "id": "storage",
+      "agent": "archivist",
+      "action": "store_memories",
+      "inputs": ["compressed_memories"],
+      "outputs": ["storage_confirmation"],
+      "parameters": {
+        "storage_type": "vector_db",
+        "indexing": true
+      }
+    },
+    {
+      "id": "summary_generation",
+      "agent": "analyst",
+      "action": "generate_summary",
+      "inputs": ["compressed_memories"],
+      "outputs": ["period_summary"],
+      "parameters": {
+        "summary_length": "comprehensive",
+        "include_trends": true
+      }
+    }
+  ],
+  "error_handling": {
+    "retry_attempts": 3,
+    "fallback_agent": "analyst",
+    "notify_on_failure": true
+  }
+}

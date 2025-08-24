@@ -1,1 +1,79 @@
-d
+{
+  "localModels": [
+    {
+      "type": "lmstudio",
+      "name": "Mistral 7B",
+      "description": "7 billion parameter model by Mistral AI",
+      "capabilities": ["general", "writing", "research"],
+      "config": {
+        "url": "http://localhost:1234",
+        "context_length": 4096,
+        "recommended_temperature": 0.7
+      }
+    },
+    {
+      "type": "lmstudio",
+      "name": "Llama 2 7B",
+      "description": "7 billion parameter model by Meta",
+      "capabilities": ["general", "coding", "analysis"],
+      "config": {
+        "url": "http://localhost:1234",
+        "context_length": 4096,
+        "recommended_temperature": 0.6
+      }
+    },
+    {
+      "type": "ollama",
+      "name": "CodeLlama",
+      "description": "Specialized coding model based on Llama 2",
+      "capabilities": ["coding", "debugging"],
+      "config": {
+        "url": "http://localhost:11434",
+        "context_length": 16384,
+        "recommended_temperature": 0.2
+      }
+    },
+    {
+      "type": "ollama",
+      "name": "Llama 2 Uncensored",
+      "description": "Uncensored version of Llama 2",
+      "capabilities": ["general", "creative"],
+      "config": {
+        "url": "http://localhost:11434",
+        "context_length": 4096,
+        "recommended_temperature": 0.8
+      }
+    }
+  ],
+  "cloudModels": [
+    {
+      "type": "openai",
+      "name": "GPT-4",
+      "description": "OpenAI's most capable model",
+      "capabilities": ["general", "advanced"],
+      "config": {
+        "api_key": "",
+        "model": "gpt-4",
+        "max_tokens": 8192
+      },
+      "requires_api_key": true
+    },
+    {
+      "type": "openai",
+      "name": "GPT-3.5 Turbo",
+      "description": "OpenAI's fast and efficient model",
+      "capabilities": ["general", "fast"],
+      "config": {
+        "api_key": "",
+        "model": "gpt-3.5-turbo",
+        "max_tokens": 4096
+      },
+      "requires_api_key": true
+    }
+  ],
+  "connectionDefaults": {
+    "timeout": 30000,
+    "retry_attempts": 3,
+    "retry_delay": 1000
+  }
+}

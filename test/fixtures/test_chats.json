@@ -1,0 +1,86 @@
+{
+  "research_chat": {
+    "session_id": "chat_research_001",
+    "user_id": "user_001",
+    "agent_id": "agent_research_001",
+    "title": "AI Research Discussion",
+    "created_at": "2023-11-15T10:30:00Z",
+    "updated_at": "2023-11-15T10:45:00Z",
+    "messages": [
+      {
+        "id": "msg_001",
+        "session_id": "chat_research_001",
+        "content": "Can you help me research recent advancements in AI?",
+        "sender": "user",
+        "agent_id": "agent_research_001",
+        "timestamp": "2023-11-15T10:30:15Z"
+      },
+      {
+        "id": "msg_002",
+        "session_id": "chat_research_001",
+        "content": "Certainly! I can help you research recent advancements in AI. Are you interested in any specific area like natural language processing, computer vision, reinforcement learning, or something else?",
+        "sender": "agent",
+        "agent_id": "agent_research_001",
+        "timestamp": "2023-11-15T10:30:30Z"
+      },
+      {
+        "id": "msg_003",
+        "session_id": "chat_research_001",
+        "content": "I'm particularly interested in multimodal AI systems that can process both text and images.",
+        "sender": "user",
+        "agent_id": "agent_research_001",
+        "timestamp": "2023-11-15T10:31:05Z"
+      },
+      {
+        "id": "msg_004",
+        "session_id": "chat_research_001",
+        "content": "Excellent choice! Multimodal AI is a rapidly advancing field. Some recent developments include models like GPT-4V (Vision), which can understand both text and images, and other architectures that fuse visual and linguistic information. Would you like me to gather specific research papers or recent announcements from major AI labs?",
+        "sender": "agent",
+        "agent_id": "agent_research_001",
+        "timestamp": "2023-11-15T10:31:20Z"
+      }
+    ]
+  },
+  "coding_chat": {
+    "session_id": "chat_coding_001",
+    "user_id": "user_001",
+    "agent_id": "agent_coding_001",
+    "title": "Python Code Assistance",
+    "created_at": "2023-11-15T11:00:00Z",
+    "updated_at": "2023-11-15T11:20:00Z",
+    "messages": [
+      {
+        "id": "msg_005",
+        "session_id": "chat_coding_001",
+        "content": "I need help writing a Python function to process JSON data.",
+        "sender": "user",
+        "agent_id": "agent_coding_001",
+        "timestamp": "2023-11-15T11:00:15Z"
+      },
+      {
+        "id": "msg_006",
+        "session_id": "chat_coding_001",
+        "content": "I'd be happy to help you with that! Could you provide more details about what you want the function to do? For example, are you parsing JSON, transforming it, extracting specific values, or something else?",
+        "sender": "agent",
+        "agent_id": "agent_coding_001",
+        "timestamp": "2023-11-15T11:00:30Z"
+      },
+      {
+        "id": "msg_007",
+        "session_id": "chat_coding_001",
+        "content": "I need to extract specific fields from a JSON response and convert them to a CSV format.",
+        "sender": "user",
+        "agent_id": "agent_coding_001",
+        "timestamp": "2023-11-15T11:01:10Z"
+      },
+      {
+        "id": "msg_008",
+        "session_id": "chat_coding_001",
+        "content": "That's a common task! I can help you create a function that takes JSON data and field names, then outputs CSV. Would you like me to show you a complete example with error handling, or would you prefer a simpler version to start with?",
+        "sender": "agent",
+        "agent_id": "agent_coding_001",
+        "timestamp": "2023-11-15T11:01:25Z"
+      }
+    ]
+  }
+}

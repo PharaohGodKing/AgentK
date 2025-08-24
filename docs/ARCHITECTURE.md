@@ -1,3 +1,33 @@
+Architecture Documentation
+
+**📄 docs/ARCHITECTURE.md**
+```markdown
+# AgentK Architecture
+
+## 🏗️ System Overview
+
+AgentK is built on a modular, extensible architecture designed for local AI automation.
+
+### Core Principles
+- **Local First**: No cloud dependencies
+- **Modular**: Plug-and-play components
+- **Extensible**: Easy to add new capabilities
+- **Privacy Focused**: Data stays on your machine
+
+## 📊 System Architecture
+
+┌─────────────────┐ ┌─────────────────┐ ┌─────────────────┐
+│ Frontend │ │ Backend API │ │ AI Services │
+│ (Browser) │◄──►│ (FastAPI) │◄──►│ (LM Studio) │
+│ │ │ │ │ (Ollama) │
+└─────────────────┘ └─────────────────┘ └─────────────────┘
+▲ ▲ ▲
+│ │ │
+┌─────────────────┐ ┌─────────────────┐ ┌─────────────────┐
+│ Local Storage │ │ Database │ │ Vector Store │
+│ (IndexedDB) │ │ (SQLite) │ │ (ChromaDB) │
+└─────────────────┘ └─────────────────┘ └─────────────────┘
+
 AgentK/
 ├── 📄 README.md                       # Main project documentation
 ├── 📄 LICENSE                         # MIT or Apache 2.0 license
@@ -33,6 +63,13 @@ AgentK/
 │   │   │   ├── 📄 storage.js          # Local storage management
 │   │   │   └── 📄 validation.js       # Input validation utilities
 │   │   ├── 📁 components/             # UI components
+│   │   │   ├── 📄 AgentCard.js
+│   │   │   ├── 📄 SystemMonitor.js
+│   │   │   ├── 📄 SessionManager.js
+│   │   │   ├── 📄 FileUploader.js
+│   │   │   ├── 📄 Chat.js
+│   │   │   ├── 📄 Agents.js
+│   │   │   ├── 📄 AgentEditor.js
 │   │   │   ├── 📄 AgentCard.js        # Agent display component
 │   │   │   ├── 📄 ChatWindow.js       # Chat interface component
 │   │   │   ├── 📄 WorkflowBuilder.js  # Visual workflow editor
@@ -45,11 +82,26 @@ AgentK/
 │   │       ├── 📄 api_client.js       # API wrapper for backend communication
 │   │       └── 📄 notification_service.js # Toasts, alerts, and user feedback
 │   ├── 📁 assets/                     # Static assets
-│   │   ├── 📁 icons/                  # Application icons (SVG/PNG)
-│   │   ├── 📁 avatars/                # Agent avatar images
+│   │   ├── 📁 icons/
+|   |   ├── dashboard.svg         # Icon for dashboard view
+|   |   ├── agents.svg            # Icon for agent list
+|   |   ├── workflows.svg         # Icon for workflow builder
+|   |   ├── settings.svg          # Icon for settings panel
+|   |   ├── chat.svg              # Icon for chat interface
+|   |   ├── memory.svg            # Icon for memory viewer
+|   |   ├── plugin.svg            # Icon for plugin manager                  # Application icons (SVG/PNG)
+│   │   ├── 📁 avatars/                # Agent avatar
+│   │   ├── archivist.png         # Archivist agent
+│   │   ├── scribe.png            # Scribe agent
+│   │   ├── analyst.png           # Analyst agent
+│   │   ├── coder.png             # Coding assistant
+│   │   ├── researcher.png        # Research agent
 │   │   ├── 📄 logo.png                # Main application logo
 │   │   ├── 📄 favicon.ico             # Browser favicon
 │   │   └── 📁 sounds/                 # Optional notification sounds
+│   │   ├── notify.mp3            # General notification
+│   │   ├── alert.mp3             # Error or warning
+│   │   └── success.mp3           # Task completion
 │   └── 📁 config/                     # Frontend configuration
 │       ├── 📄 agents.json             # Default agent configurations
 │       ├── 📄 models.json             # Local model definitions
@@ -121,7 +173,7 @@ AgentK/
 │   │   └── 📄 helpers.py              # General helper functions
 │   ├── 📁 tests/                      # Backend tests
 │   │   ├── 📄 __init__.py
-│   │   ├── 📄 conftest.py             # Test configuration
+│   │   ├── 📄 config_test.py          # Test configuration
 │   │   ├── 📁 unit/                   # Unit tests
 │   │   │   ├── 📄 test_services.py
 │   │   │   ├── 📄 test_models.py
@@ -207,7 +259,7 @@ AgentK/
 │   ├── 📄 backup.sh                   # Data backup
 │   ├── 📄 restore.sh                  # Data restoration
 │   ├── 📄 update.sh                   # Application update
-│   ├── 📄 healthcheck.sh              # System health check
+│   ├── 📄 health_check.sh             # System health check
 │   ├── 📄 cleanup.sh                  # System cleanup
 │   └── 📄 diagnostics.sh              # System diagnostics
 

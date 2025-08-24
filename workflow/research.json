@@ -1,1 +1,68 @@
-g
+{
+  "name": "Research Assistant Workflow",
+  "description": "Comprehensive research workflow for gathering and analyzing information",
+  "version": "1.0",
+  "created_by": "system",
+  "agents": ["research_assistant", "analyst", "archivist"],
+  "steps": [
+    {
+      "id": "topic_analysis",
+      "agent": "research_assistant",
+      "action": "analyze_topic",
+      "inputs": ["query"],
+      "outputs": ["research_plan"],
+      "parameters": {
+        "depth": "comprehensive",
+        "sources": ["web", "local_db"]
+      }
+    },
+    {
+      "id": "information_gathering",
+      "agent": "research_assistant",
+      "action": "gather_information",
+      "inputs": ["research_plan"],
+      "outputs": ["raw_data"],
+      "parameters": {
+        "max_sources": 10,
+        "include_citations": true
+      }
+    },
+    {
+      "id": "data_analysis",
+      "agent": "analyst",
+      "action": "analyze_data",
+      "inputs": ["raw_data"],
+      "outputs": ["insights"],
+      "parameters": {
+        "analysis_type": "comprehensive"
+      }
+    },
+    {
+      "id": "report_generation",
+      "agent": "research_assistant",
+      "action": "generate_report",
+      "inputs": ["insights"],
+      "outputs": ["final_report"],
+      "parameters": {
+        "format": "markdown",
+        "include_summary": true
+      }
+    },
+    {
+      "id": "archival",
+      "agent": "archivist",
+      "action": "store_research",
+      "inputs": ["final_report", "raw_data"],
+      "outputs": ["storage_confirmation"],
+      "parameters": {
+        "categorize": true,
+        "make_accessible": true
+      }
+    }
+  ],
+  "error_handling": {
+    "retry_attempts": 3,
+    "fallback_agent": "archivist",
+    "notify_on_failure": true
+  }
+}

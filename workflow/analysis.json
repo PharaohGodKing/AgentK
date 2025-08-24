@@ -1,0 +1,91 @@
+{
+  "name": "Data Analysis Workflow",
+  "description": "Complete data analysis workflow from data collection to insights generation",
+  "version": "1.0",
+  "created_by": "system",
+  "agents": ["analyst", "research_assistant", "archivist"],
+  "steps": [
+    {
+      "id": "data_collection",
+      "agent": "research_assistant",
+      "action": "collect_data",
+      "inputs": ["data_sources"],
+      "outputs": ["raw_dataset"],
+      "parameters": {
+        "validate_sources": true,
+        "format_data": true
+      }
+    },
+    {
+      "id": "data_cleaning",
+      "agent": "analyst",
+      "action": "clean_data",
+      "inputs": ["raw_dataset"],
+      "outputs": ["clean_dataset"],
+      "parameters": {
+        "handle_missing": "auto",
+        "remove_outliers": true
+      }
+    },
+    {
+      "id": "exploratory_analysis",
+      "agent": "analyst",
+      "action": "explore_data",
+      "inputs": ["clean_dataset"],
+      "outputs": ["initial_insights"],
+      "parameters": {
+        "generate_visualizations": true,
+        "identify_patterns": true
+      }
+    },
+    {
+      "id": "statistical_analysis",
+      "agent": "analyst",
+      "action": "analyze_statistically",
+      "inputs": ["clean_dataset", "initial_insights"],
+      "outputs": ["statistical_results"],
+      "parameters": {
+        "tests": ["correlation", "significance"],
+        "confidence_level": 0.95
+      }
+    },
+    {
+      "id": "insight_generation",
+      "agent": "analyst",
+      "action": "generate_insights",
+      "inputs": ["statistical_results", "initial_insights"],
+      "outputs": ["final_insights"],
+      "parameters": {
+        "actionable_recommendations": true,
+        "prioritize_findings": true
+      }
+    },
+    {
+      "id": "report_creation",
+      "agent": "analyst",
+      "action": "create_report",
+      "inputs": ["final_insights"],
+      "outputs": ["analysis_report"],
+      "parameters": {
+        "include_visualizations": true,
+        "executive_summary": true
+      }
+    },
+    {
+      "id": "archival",
+      "agent": "archivist",
+      "action": "store_analysis",
+      "inputs": ["analysis_report", "clean_dataset"],
+      "outputs": ["storage_confirmation"],
+      "parameters": {
+        "version_data": true,
+        "index_for_search": true
+      }
+    }
+  ],
+  "error_handling": {
+    "retry_attempts": 2,
+    "fallback_agent": "research_assistant",
+    "notify_on_failure": true
+  }
+}

@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 import uvicorn
+from plugins.plugin_manager import plugin_manager
 
 # Initialize the FastAPI app
 app = FastAPI()
@@ -46,3 +47,23 @@ async def get_active_agents():
 
 # To run this server, save the file as main.py and run the following
 # command in your terminal: uvicorn main:app --reload
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    # Startup: Initialize database and services
+    await init_db()
+    app.state.db = get_db()
+    
+    # Initialize plugin manager
+    app.state.plugin_manager = await get_plugin_manager()
+    
+    # Create necessary directories
+    Path(settings.UPLOAD_PATH).mkdir(parents=True, exist_ok=True)
+    Path(settings.LOG_PATH).mkdir(parents=True, exist_ok=True)
+    
+    print(f"🚀 {settings.APP_NAME} starting in {settings.APP_ENV} mode")
+    yield
+    
+    # Shutdown: Clean up resources
+    if hasattr(app.state, 'plugin_manager'):
+        await app.state.plugin_manager.cleanup()
+    print("🛑 Shutting down AgentK")

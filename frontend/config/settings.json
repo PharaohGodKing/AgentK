@@ -1,0 +1,64 @@
+{
+  "app": {
+    "name": "AgentK",
+    "version": "1.0.0",
+    "description": "Local AI Agent Collaborator System",
+    "repository": "https://github.com/yourusername/agentk"
+  },
+  "features": {
+    "multi_agent": true,
+    "workflows": true,
+    "local_models": true,
+    "vector_memory": true,
+    "plugin_system": true,
+    "file_processing": true
+  },
+  "ui": {
+    "theme": "dark",
+    "font_size": "medium",
+    "reduce_motion": false,
+    "animations": true,
+    "sidebar_width": 250,
+    "compact_mode": false
+  },
+  "notifications": {
+    "enabled": true,
+    "sounds": true,
+    "desktop_alerts": false,
+    "success": true,
+    "errors": true,
+    "warnings": true,
+    "info": false
+  },
+  "privacy": {
+    "analytics": false,
+    "error_reports": false,
+    "telemetry": false,
+    "data_retention": {
+      "chat_history": 30,
+      "activity_logs": 90,
+      "model_cache": 7
+    }
+  },
+  "performance": {
+    "cache_enabled": true,
+    "cache_size": 100,
+    "max_concurrent_requests": 5,
+    "model_timeout": 30000,
+    "auto_cleanup": true
+  },
+  "advanced": {
+    "debug_mode": false,
+    "developer_tools": false,
+    "api_url": "http://localhost:8000/api",
+    "log_level": "info",
+    "experimental_features": false
+  },
+  "shortcuts": {
+    "search": "ctrl+k",
+    "new_agent": "ctrl+shift+a",
+    "new_chat": "ctrl+shift+c",
+    "settings": "ctrl+,",
+    "command_palette": "ctrl+shift+p"
+  }
+}

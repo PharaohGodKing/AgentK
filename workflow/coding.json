@@ -1,1 +1,76 @@
-g
+{
+  "name": "Coding Assistant Workflow",
+  "description": "Complete code development workflow from planning to testing",
+  "version": "1.0",
+  "created_by": "system",
+  "agents": ["coding_assistant", "analyst", "archivist"],
+  "steps": [
+    {
+      "id": "requirement_analysis",
+      "agent": "analyst",
+      "action": "analyze_requirements",
+      "inputs": ["project_description"],
+      "outputs": ["specifications"],
+      "parameters": {
+        "detail_level": "comprehensive"
+      }
+    },
+    {
+      "id": "architecture_planning",
+      "agent": "coding_assistant",
+      "action": "plan_architecture",
+      "inputs": ["specifications"],
+      "outputs": ["architecture_plan"],
+      "parameters": {
+        "include_diagrams": true
+      }
+    },
+    {
+      "id": "implementation",
+      "agent": "coding_assistant",
+      "action": "write_code",
+      "inputs": ["architecture_plan"],
+      "outputs": ["codebase"],
+      "parameters": {
+        "language": "auto_detect",
+        "include_comments": true,
+        "include_tests": true
+      }
+    },
+    {
+      "id": "testing",
+      "agent": "coding_assistant",
+      "action": "test_code",
+      "inputs": ["codebase"],
+      "outputs": ["test_results"],
+      "parameters": {
+        "test_coverage": 0.8
+      }
+    },
+    {
+      "id": "documentation",
+      "agent": "coding_assistant",
+      "action": "generate_docs",
+      "inputs": ["codebase"],
+      "outputs": ["documentation"],
+      "parameters": {
+        "format": "markdown"
+      }
+    },
+    {
+      "id": "archival",
+      "agent": "archivist",
+      "action": "store_project",
+      "inputs": ["codebase", "documentation", "test_results"],
+      "outputs": ["storage_confirmation"],
+      "parameters": {
+        "version": true
+      }
+    }
+  ],
+  "error_handling": {
+    "retry_attempts": 2,
+    "fallback_agent": "analyst",
+    "notify_on_failure": true
+  }
+}

@@ -1,1 +1,270 @@
-d
+/* Light theme */
+.light-theme {
+    --bg-primary: var(--gray-50);
+    --bg-secondary: var(--white);
+    --bg-tertiary: var(--gray-100);
+    --bg-card: var(--white);
+    --bg-overlay: rgba(255, 255, 255, 0.5);
+
+    --text-primary: var(--gray-900);
+    --text-secondary: var(--gray-700);
+    --text-muted: var(--gray-500);
+    --text-inverse: var(--black);
+
+    --border-color: var(--gray-200);
+    --border-light: var(--gray-100);
+    --border-dark: var(--gray-300);
+
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Dark theme (default) */
+.dark-theme {
+    --bg-primary: var(--gray-900);
+    --bg-secondary: var(--gray-800);
+    --bg-tertiary: var(--gray-700);
+    --bg-card: var(--gray-800);
+    --bg-overlay: rgba(0, 0, 0, 0.5);
+
+    --text-primary: var(--gray-100);
+    --text-secondary: var(--gray-300);
+    --text-muted: var(--gray-400);
+    --text-inverse: var(--white);
+
+    --border-color: var(--gray-700);
+    --border-light: var(--gray-600);
+    --border-dark: var(--gray-800);
+}
+
+/* High contrast theme */
+.high-contrast-theme {
+    --bg-primary: #000000;
+    --bg-secondary: #111111;
+    --bg-tertiary: #222222;
+    --bg-card: #111111;
+    --bg-overlay: rgba(0, 0, 0, 0.8);
+
+    --text-primary: #ffffff;
+    --text-secondary: #cccccc;
+    --text-muted: #999999;
+    --text-inverse: #000000;
+
+    --border-color: #444444;
+    --border-light: #333333;
+    --border-dark: #555555;
+
+    --primary: #00ffff;
+    --primary-dark: #00cccc;
+    --primary-light: #00ffff;
+    --secondary: #ffff00;
+    --secondary-dark: #cccc00;
+    --accent: #ff00ff;
+    --danger: #ff0000;
+    --warning: #ff5500;
+    --success: #00ff00;
+    --info: #0000ff;
+}
+
+/* Theme transition */
+body {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Theme switcher */
+.theme-switcher {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-md) var(--spacing-lg);
+}
+
+.theme-option {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-sm);
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: background-color var(--transition-fast);
+}
+
+.theme-option:hover {
+    background: var(--bg-tertiary);
+}
+
+.theme-preview {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid var(--border-color);
+}
+
+.theme-preview.light {
+    background: linear-gradient(135deg, #f3f4f6 50%, #e5e7eb 50%);
+}
+
+.theme-preview.dark {
+    background: linear-gradient(135deg, #1f2937 50%, #111827 50%);
+}
+
+.theme-preview.high-contrast {
+    background: linear-gradient(135deg, #000000 50%, #00ffff 50%);
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    html {
+        scroll-behavior: auto;
+    }
+}
+
+/* Forced colors mode (Windows High Contrast) */
+@media (forced-colors: active) {
+    .theme-preview {
+        forced-color-adjust: none;
+    }
+}
+/* Light theme */
+.light-theme {
+    --bg-primary: var(--gray-50);
+    --bg-secondary: var(--white);
+    --bg-tertiary: var(--gray-100);
+    --bg-card: var(--white);
+    --bg-overlay: rgba(255, 255, 255, 0.5);
+
+    --text-primary: var(--gray-900);
+    --text-secondary: var(--gray-700);
+    --text-muted: var(--gray-500);
+    --text-inverse: var(--black);
+
+    --border-color: var(--gray-200);
+    --border-light: var(--gray-100);
+    --border-dark: var(--gray-300);
+
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Dark theme (default) */
+.dark-theme {
+    --bg-primary: var(--gray-900);
+    --bg-secondary: var(--gray-800);
+    --bg-tertiary: var(--gray-700);
+    --bg-card: var(--gray-800);
+    --bg-overlay: rgba(0, 0, 0, 0.5);
+
+    --text-primary: var(--gray-100);
+    --text-secondary: var(--gray-300);
+    --text-muted: var(--gray-400);
+    --text-inverse: var(--white);
+
+    --border-color: var(--gray-700);
+    --border-light: var(--gray-600);
+    --border-dark: var(--gray-800);
+}
+
+/* High contrast theme */
+.high-contrast-theme {
+    --bg-primary: #000000;
+    --bg-secondary: #111111;
+    --bg-tertiary: #222222;
+    --bg-card: #111111;
+    --bg-overlay: rgba(0, 0, 0, 0.8);
+
+    --text-primary: #ffffff;
+    --text-secondary: #cccccc;
+    --text-muted: #999999;
+    --text-inverse: #000000;
+
+    --border-color: #444444;
+    --border-light: #333333;
+    --border-dark: #555555;
+
+    --primary: #00ffff;
+    --primary-dark: #00cccc;
+    --primary-light: #00ffff;
+    --secondary: #ffff00;
+    --secondary-dark: #cccc00;
+    --accent: #ff00ff;
+    --danger: #ff0000;
+    --warning: #ff5500;
+    --success: #00ff00;
+    --info: #0000ff;
+}
+
+/* Theme transition */
+body {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Theme switcher */
+.theme-switcher {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-md) var(--spacing-lg);
+}
+
+.theme-option {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-sm);
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: background-color var(--transition-fast);
+}
+
+.theme-option:hover {
+    background: var(--bg-tertiary);
+}
+
+.theme-preview {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid var(--border-color);
+}
+
+.theme-preview.light {
+    background: linear-gradient(135deg, #f3f4f6 50%, #e5e7eb 50%);
+}
+
+.theme-preview.dark {
+    background: linear-gradient(135deg, #1f2937 50%, #111827 50%);
+}
+
+.theme-preview.high-contrast {
+    background: linear-gradient(135deg, #000000 50%, #00ffff 50%);
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    html {
+        scroll-behavior: auto;
+    }
+}
+
+/* Forced colors mode (Windows High Contrast) */
+@media (forced-colors: active) {
+    .theme-preview {
+        forced-color-adjust: none;
+    }
+}

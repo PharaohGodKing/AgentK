@@ -1,0 +1,52 @@
+{
+  "research_agent": {
+    "id": "agent_research_001",
+    "name": "Research Assistant",
+    "description": "Specializes in web research and information gathering",
+    "model": "lm_studio",
+    "capabilities": ["web_research", "information_synthesis", "citation_management"],
+    "status": "online",
+    "created_at": "2023-11-15T10:00:00Z",
+    "updated_at": "2023-11-15T10:00:00Z"
+  },
+  "coding_agent": {
+    "id": "agent_coding_001",
+    "name": "Coding Assistant",
+    "description": "Specializes in code generation, review, and debugging",
+    "model": "ollama",
+    "capabilities": ["code_generation", "code_review", "debugging", "documentation"],
+    "status": "online",
+    "created_at": "2023-11-15T10:05:00Z",
+    "updated_at": "2023-11-15T10:05:00Z"
+  },
+  "writing_agent": {
+    "id": "agent_writing_001",
+    "name": "Writing Assistant",
+    "description": "Specializes in content creation and editing",
+    "model": "lm_studio",
+    "capabilities": ["content_creation", "editing", "summarization", "formatting"],
+    "status": "online",
+    "created_at": "2023-11-15T10:10:00Z",
+    "updated_at": "2023-11-15T10:10:00Z"
+  },
+  "analysis_agent": {
+    "id": "agent_analysis_001",
+    "name": "Analysis Assistant",
+    "description": "Specializes in data analysis and insight generation",
+    "model": "ollama",
+    "capabilities": ["data_analysis", "statistical_analysis", "visualization", "insight_generation"],
+    "status": "busy",
+    "created_at": "2023-11-15T10:15:00Z",
+    "updated_at": "2023-11-15T10:15:00Z"
+  },
+  "archivist_agent": {
+    "id": "agent_archivist_001",
+    "name": "Archivist Assistant",
+    "description": "Specializes in information organization and retrieval",
+    "model": "lm_studio",
+    "capabilities": ["information_organization", "categorization", "retrieval", "summarization"],
+    "status": "online",
+    "created_at": "2023-11-15T10:20:00Z",
+    "updated_at": "2023-11-15T10:20:00Z"
+  }
+}

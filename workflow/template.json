@@ -1,0 +1,31 @@
+{
+  "name": "Workflow Template",
+  "description": "Template for creating new workflows",
+  "version": "1.0",
+  "created_by": "user",
+  "agents": [],
+  "steps": [
+    {
+      "id": "step_1",
+      "agent": "agent_name",
+      "action": "action_name",
+      "inputs": ["input_data"],
+      "outputs": ["output_data"],
+      "parameters": {
+        "parameter_1": "value_1",
+        "parameter_2": "value_2"
+      }
+    }
+  ],
+  "error_handling": {
+    "retry_attempts": 3,
+    "fallback_agent": "backup_agent",
+    "notify_on_failure": false
+  },
+  "metadata": {
+    "creation_date": "2023-11-15",
+    "last_modified": "2023-11-15",
+    "tags": ["template"],
+    "category": "uncategorized"
+  }
+}

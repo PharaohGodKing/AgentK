@@ -1,1 +1,133 @@
-d
+{
+  "exampleWorkflows": [
+    {
+      "id": "research-and-summarize",
+      "name": "Research and Summarize",
+      "description": "Research a topic and generate a comprehensive summary",
+      "nodes": [
+        {
+          "id": "start",
+          "type": "start",
+          "position": { "x": 100, "y": 100 },
+          "config": {}
+        },
+        {
+          "id": "research",
+          "type": "agent",
+          "position": { "x": 300, "y": 100 },
+          "config": {
+            "agent_id": "research-assistant",
+            "prompt": "Research the following topic: {{input.topic}}"
+          }
+        },
+        {
+          "id": "summarize",
+          "type": "agent",
+          "position": { "x": 500, "y": 100 },
+          "config": {
+            "agent_id": "writing-assistant",
+            "prompt": "Summarize the research findings into a comprehensive report"
+          }
+        },
+        {
+          "id": "end",
+          "type": "end",
+          "position": { "x": 700, "y": 100 },
+          "config": {}
+        }
+      ],
+      "connections": [
+        { "from": "start", "to": "research" },
+        { "from": "research", "to": "summarize" },
+        { "from": "summarize", "to": "end" }
+      ]
+    },
+    {
+      "id": "code-review",
+      "name": "Code Review",
+      "description": "Review code and suggest improvements",
+      "nodes": [
+        {
+          "id": "start",
+          "type": "start",
+          "position": { "x": 100, "y": 100 },
+          "config": {}
+        },
+        {
+          "id": "review",
+          "type": "agent",
+          "position": { "x": 300, "y": 100 },
+          "config": {
+            "agent_id": "coding-assistant",
+            "prompt": "Review the following code and suggest improvements:\n\n{{input.code}}"
+          }
+        },
+        {
+          "id": "quality-check",
+          "type": "condition",
+          "position": { "x": 500, "y": 100 },
+          "config": {
+            "condition": "output.score > 0.7"
+          }
+        },
+        {
+          "id": "approve",
+          "type": "action",
+          "position": { "x": 700, "y": 50 },
+          "config": {
+            "action": "log",
+            "message": "Code approved with score: {{output.score}}"
+          }
+        },
+        {
+          "id": "reject",
+          "type": "action",
+          "position": { "x": 700, "y": 150 },
+          "config": {
+            "action": "log",
+            "message": "Code needs improvement. Score: {{output.score}}"
+          }
+        },
+        {
+          "id": "end",
+          "type": "end",
+          "position": { "x": 900, "y": 100 },
+          "config": {}
+        }
+      ],
+      "connections": [
+        { "from": "start", "to": "review" },
+        { "from": "review", "to": "quality-check" },
+        { "from": "quality-check", "to": "approve", "condition": "true" },
+        { "from": "quality-check", "to": "reject", "condition": "false" },
+        { "from": "approve", "to": "end" },
+        { "from": "reject", "to": "end" }
+      ]
+    }
+  ],
+  "nodeTemplates": {
+    "agent": {
+      "config": {
+        "temperature": 0.7,
+        "max_tokens": 2000,
+        "stream": false
+      }
+    },
+    "condition": {
+      "config": {
+        "operator": ">",
+        "value": 0.5
+      }
+    },
+    "action": {
+      "config": {
+        "type": "log"
+      }
+    }
+  },
+  "defaultWorkflowSettings": {
+    "max_execution_time": 300000,
+    "retry_on_failure": true,
+    "save_results": true
+  }
+}

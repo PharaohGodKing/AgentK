@@ -1,1 +1,72 @@
-d
+{
+  "defaultAgents": [
+    {
+      "id": "research-assistant",
+      "name": "Research Assistant",
+      "description": "Specializes in web research, data analysis, and information gathering",
+      "model": "lmstudio",
+      "capabilities": ["web_research", "data_analysis"],
+      "config": {
+        "temperature": 0.7,
+        "max_tokens": 2000,
+        "web_search": true,
+        "citation_format": "apa"
+      },
+      "avatar": "researcher.png"
+    },
+    {
+      "id": "coding-assistant",
+      "name": "Coding Assistant",
+      "description": "Helps with code generation, review, and debugging across multiple languages",
+      "model": "ollama",
+      "capabilities": ["code_generation"],
+      "config": {
+        "temperature": 0.2,
+        "max_tokens": 4000,
+        "languages": ["python", "javascript", "typescript", "java", "c++"],
+        "auto_test": true
+      },
+      "avatar": "coder.png"
+    },
+    {
+      "id": "writing-assistant",
+      "name": "Writing Assistant",
+      "description": "Creates and edits content including articles, stories, and professional documents",
+      "model": "lmstudio",
+      "capabilities": ["content_writing"],
+      "config": {
+        "temperature": 0.8,
+        "max_tokens": 3000,
+        "styles": ["professional", "creative", "academic"],
+        "grammar_check": true
+      },
+      "avatar": "scribe.png"
+    },
+    {
+      "id": "data-analyst",
+      "name": "Data Analyst",
+      "description": "Specializes in data processing, visualization, and statistical analysis",
+      "model": "ollama",
+      "capabilities": ["data_analysis"],
+      "config": {
+        "temperature": 0.3,
+        "max_tokens": 2500,
+        "data_formats": ["csv", "json", "excel"],
+        "visualization": true
+      },
+      "avatar": "analyst.png"
+    }
+  ],
+  "modelPreferences": {
+    "research": "lmstudio",
+    "coding": "ollama",
+    "writing": "lmstudio",
+    "analysis": "ollama"
+  },
+  "defaultSettings": {
+    "auto_save": true,
+    "auto_save_interval": 30000,
+    "max_history_length": 100,
+    "default_temperature": 0.7
+  }
+}
