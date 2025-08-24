@@ -3,400 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AgentK Collaborator System</title>
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/themes.css">
-    <link rel="stylesheet" href="css/components.css">
-    <link rel="stylesheet" href="css/utilities.css">
-    <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
-</head>
-<body class="dark-theme">
-    <div id="app">
-        <!-- Loading Screen -->
-        <div id="loading-screen" class="loading-screen">
-            <div class="loading-content">
-                <div class="logo-container">
-                    <img src="assets/logo.png" alt="AgentK Logo" class="logo">
-                    <h1>AgentK</h1>
-                </div>
-                <div class="loading-spinner"></div>
-                <p>Initializing Local AI System...</p>
-            </div>
-        </div>
-
-        <!-- Main Layout -->
-        <div id="main-layout" class="main-layout hidden">
-            <!-- Sidebar -->
-            <aside id="sidebar" class="sidebar">
-                <div class="sidebar-header">
-                    <div class="logo-container">
-                        <img src="assets/logo.png" alt="AgentK Logo" class="logo">
-                        <span class="app-name">AgentK</span>
-                    </div>
-                    <button id="sidebar-toggle" class="sidebar-toggle" aria-label="Toggle sidebar">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M3 12h18M3 6h18M3 18h18"></path>
-                        </svg>
-                    </button>
-                </div>
-
-                <nav class="sidebar-nav">
-                    <ul class="nav-list">
-                        <li class="nav-item">
-                            <a href="#dashboard" class="nav-link active" data-view="dashboard">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
-                                    <polyline points="9 22 9 12 15 12 15 22"></polyline>
-                                </svg>
-                                <span class="nav-text">Dashboard</span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#agents" class="nav-link" data-view="agents">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M12 19l7-7 3 3-7 7-3-3z"></path>
-                                    <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path>
-                                    <path d="M2 2l7.586 7.586"></path>
-                                    <circle cx="11" cy="11" r="2"></circle>
-                                </svg>
-                                <span class="nav-text">Agents</span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#workflows" class="nav-link" data-view="workflows">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
-                                </svg>
-                                <span class="nav-text">Workflows</span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#chat" class="nav-link" data-view="chat">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
-                                </svg>
-                                <span class="nav-text">Chat</span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#memory" class="nav-link" data-view="memory">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
-                                    <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
-                                    <line x1="12" y1="22.08" x2="12" y2="12"></line>
-                                </svg>
-                                <span class="nav-text">Memory</span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#models" class="nav-link" data-view="models">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
-                                    <polyline points="7.5 4.21 12 6.81 16.5 4.21"></polyline>
-                                    <polyline points="7.5 19.79 7.5 14.6 3 12"></polyline>
-                                    <polyline points="21 12 16.5 14.6 16.5 19.79"></polyline>
-                                    <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
-                                    <line x1="12" y1="22.08" x2="12" y2="12"></line>
-                                </svg>
-                                <span class="nav-text">Models</span>
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
-
-                <div class="sidebar-footer">
-                    <div class="system-status">
-                        <div class="status-indicator">
-                            <span class="status-dot online"></span>
-                            <span class="status-text">Local Mode Active</span>
-                        </div>
-                        <small>No cloud dependencies</small>
-                    </div>
-                    <a href="#settings" class="nav-link" data-view="settings">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <circle cx="12" cy="12" r="3"></circle>
-                            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
-                        </svg>
-                        <span class="nav-text">Settings</span>
-                    </a>
-                </div>
-            </aside>
-
-            <!-- Main Content -->
-            <main id="main-content" class="main-content">
-                <!-- Top Navigation -->
-                <header class="topbar">
-                    <div class="topbar-left">
-                        <button id="mobile-menu-toggle" class="mobile-menu-toggle" aria-label="Toggle menu">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M3 12h18M3 6h18M3 18h18"></path>
-                            </svg>
-                        </button>
-                        <div class="breadcrumb">
-                            <span id="current-view-name">Dashboard</span>
-                        </div>
-                    </div>
-
-                    <div class="topbar-right">
-                        <div class="search-container">
-                            <input type="text" id="global-search" placeholder="Search agents, workflows..." class="search-input">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="search-icon">
-                                <circle cx="11" cy="11" r="8"></circle>
-                                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                            </svg>
-                        </div>
-
-                        <div class="user-actions">
-                            <button id="notifications-btn" class="icon-btn" aria-label="Notifications">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
-                                    <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
-                                </svg>
-                                <span class="notification-badge hidden">0</span>
-                            </button>
-
-                            <div class="user-menu">
-                                <button id="user-menu-btn" class="user-btn" aria-label="User menu">
-                                    <div class="user-avatar">
-                                        <img src="assets/avatars/archivist.png" alt="User avatar">
-                                    </div>
-                                    <span class="user-name">Local User</span>
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <polyline points="6 9 12 15 18 9"></polyline>
-                                    </svg>
-                                </button>
-                                <div id="user-menu-dropdown" class="dropdown-menu hidden">
-                                    <a href="#profile" class="dropdown-item">Profile</a>
-                                    <a href="#preferences" class="dropdown-item">Preferences</a>
-                                    <div class="dropdown-divider"></div>
-                                    <button id="logout-btn" class="dropdown-item">Logout</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </header>
-
-                <!-- View Container -->
-                <div id="view-container" class="view-container">
-                    <!-- Views will be dynamically loaded here -->
-                </div>
-            </main>
-        </div>
-
-        <!-- Notification Container -->
-        <div id="notification-container" class="notification-container"></div>
-
-        <!-- Modal Container -->
-        <div id="modal-container" class="modal-container"></div>
-    </div>
-
-    <!-- JavaScript Files -->
-    <script type="module" src="js/main.js"></script>
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AgentK - Local AI Collaborator System</title>
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/themes.css">
-    <link rel="stylesheet" href="css/components.css">
-    <link rel="stylesheet" href="css/utilities.css">
-    <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
-</head>
-<body class="dark-theme">
-    <div id="app">
-        <!-- Loading Screen -->
-        <div id="loading-screen" class="loading-screen">
-            <div class="loading-content">
-                <div class="logo-container">
-                    <img src="assets/logo.png" alt="AgentK Logo" class="logo">
-                    <h1>AgentK</h1>
-                </div>
-                <div class="loading-spinner"></div>
-                <p>Initializing Local AI System...</p>
-            </div>
-        </div>
-
-        <!-- Main Layout -->
-        <div id="main-layout" class="main-layout hidden">
-            <!-- Sidebar -->
-            <aside id="sidebar" class="sidebar">
-                <div class="sidebar-header">
-                    <div class="logo-container">
-                        <img src="assets/logo.png" alt="AgentK Logo" class="logo">
-                        <span class="app-name">AgentK</span>
-                    </div>
-                    <button id="sidebar-toggle" class="sidebar-toggle" aria-label="Toggle sidebar">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M3 12h18M3 6h18M3 18h18"></path>
-                        </svg>
-                    </button>
-                </div>
-
-                <nav class="sidebar-nav">
-                    <ul class="nav-list">
-                        <li class="nav-item">
-                            <a href="#dashboard" class="nav-link active" data-view="dashboard">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
-                                    <polyline points="9 22 9 12 15 12 15 22"></polyline>
-                                </svg>
-                                <span class="nav-text">Dashboard</span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#agents" class="nav-link" data-view="agents">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M12 19l7-7 3 3-7 7-3-3z"></path>
-                                    <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path>
-                                    <path d="M2 2l7.586 7.586"></path>
-                                    <circle cx="11" cy="11" r="2"></circle>
-                                </svg>
-                                <span class="nav-text">Agents</span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#workflows" class="nav-link" data-view="workflows">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
-                                </svg>
-                                <span class="nav-text">Workflows</span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#chat" class="nav-link" data-view="chat">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
-                                </svg>
-                                <span class="nav-text">Chat</span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#memory" class="nav-link" data-view="memory">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
-                                    <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
-                                    <line x1="12" y1="22.08" x2="12" y2="12"></line>
-                                </svg>
-                                <span class="nav-text">Memory</span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#models" class="nav-link" data-view="models">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
-                                    <polyline points="7.5 4.21 12 6.81 16.5 4.21"></polyline>
-                                    <polyline points="7.5 19.79 7.5 14.6 3 12"></polyline>
-                                    <polyline points="21 12 16.5 14.6 16.5 19.79"></polyline>
-                                    <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
-                                    <line x1="12" y1="22.08" x2="12" y2="12"></line>
-                                </svg>
-                                <span class="nav-text">Models</span>
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
-
-                <div class="sidebar-footer">
-                    <div class="system-status">
-                        <div class="status-indicator">
-                            <span class="status-dot online"></span>
-                            <span class="status-text">Local Mode Active</span>
-                        </div>
-                        <small>No cloud dependencies</small>
-                    </div>
-                    <a href="#settings" class="nav-link" data-view="settings">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <circle cx="12" cy="12" r="3"></circle>
-                            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
-                        </svg>
-                        <span class="nav-text">Settings</span>
-                    </a>
-                </div>
-            </aside>
-
-            <!-- Main Content -->
-            <main id="main-content" class="main-content">
-                <!-- Top Navigation -->
-                <header class="topbar">
-                    <div class="topbar-left">
-                        <button id="mobile-menu-toggle" class="mobile-menu-toggle" aria-label="Toggle menu">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M3 12h18M3 6h18M3 18h18"></path>
-                            </svg>
-                        </button>
-                        <div class="breadcrumb">
-                            <span id="current-view-name">Dashboard</span>
-                        </div>
-                    </div>
-
-                    <div class="topbar-right">
-                        <div class="search-container">
-                            <input type="text" id="global-search" placeholder="Search agents, workflows..." class="search-input">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="search-icon">
-                                <circle cx="11" cy="11" r="8"></circle>
-                                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                            </svg>
-                        </div>
-
-                        <div class="user-actions">
-                            <button id="notifications-btn" class="icon-btn" aria-label="Notifications">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
-                                    <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
-                                </svg>
-                                <span class="notification-badge hidden">0</span>
-                            </button>
-
-                            <div class="user-menu">
-                                <button id="user-menu-btn" class="user-btn" aria-label="User menu">
-                                    <div class="user-avatar">
-                                        <img src="assets/avatars/archivist.png" alt="User avatar">
-                                    </div>
-                                    <span class="user-name">Local User</span>
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <polyline points="6 9 12 15 18 9"></polyline>
-                                    </svg>
-                                </button>
-                                <div id="user-menu-dropdown" class="dropdown-menu hidden">
-                                    <a href="#profile" class="dropdown-item">Profile</a>
-                                    <a href="#preferences" class="dropdown-item">Preferences</a>
-                                    <div class="dropdown-divider"></div>
-                                    <button id="logout-btn" class="dropdown-item">Logout</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </header>
-
-                <!-- View Container -->
-                <div id="view-container" class="view-container">
-                    <!-- Views will be dynamically loaded here -->
-                </div>
-            </main>
-        </div>
-
-        <!-- Notification Container -->
-        <div id="notification-container" class="notification-container"></div>
-
-        <!-- Modal Container -->
-        <div id="modal-container" class="modal-container"></div>
-    </div>
-
-    <!-- JavaScript Files -->
-    <script type="module" src="js/main.js"></script>
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chat App Logo Generator</title>
     <style>
+        :root {
+            --primary: #4f46e5;
+            --primary-dark: #4338ca;
+            --secondary: #10b981;
+            --dark: #1f2937;
+            --light: #f3f4f6;
+            --gray: #9ca3af;
+            --danger: #ef4444;
+            --warning: #f59e0b;
+            --card-bg: #1e293b;
+            --sidebar-bg: #0f172a;
+            --border-color: #334155;
+        }
+        
         * {
             margin: 0;
             padding: 0;
@@ -405,342 +27,2199 @@
         }
         
         body {
-            background: linear-gradient(135deg, #6e8efb, #a777e3);
-            min-height: 100vh;
+            background-color: var(--sidebar-bg);
+            color: var(--light);
             display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 2rem;
-            color: #333;
+            min-height: 100vh;
         }
         
-        .container {
-            max-width: 1000px;
+        .hidden {
+            display: none !important;
+        }
+        
+        /* Loading Screen */
+        .loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
             width: 100%;
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-            overflow: hidden;
+            height: 100%;
+            background-color: var(--sidebar-bg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
         }
         
-        header {
-            background: #6e8efb;
-            color: white;
-            padding: 1.5rem;
+        .loading-content {
             text-align: center;
         }
         
-        h1 {
-            font-weight: 600;
-            font-size: 2.2rem;
-            margin-bottom: 0.5rem;
-        }
-        
-        .subtitle {
-            font-weight: 300;
-            opacity: 0.9;
-        }
-        
-        .main-content {
-            display: flex;
-            padding: 2rem;
-            gap: 2rem;
-        }
-        
-        @media (max-width: 768px) {
-            .main-content {
-                flex-direction: column;
-            }
-        }
-        
-        .controls {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-        }
-        
-        .preview {
-            flex: 1;
+        .logo-container {
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
-            gap: 1.5rem;
+            gap: 1rem;
+            margin-bottom: 2rem;
         }
         
-        .control-group {
+        .logo {
+            width: 64px;
+            height: 64px;
+            background: var(--primary);
+            border-radius: 16px;
             display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: bold;
         }
         
-        label {
-            font-weight: 500;
-            font-size: 1rem;
-            color: #444;
+        .loading-spinner {
+            width: 40px;
+            height: 40px;
+            border: 4px solid rgba(255, 255, 255, 0.1);
+            border-top: 4px solid var(--primary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 1rem;
         }
         
-        input[type="text"],
-        input[type="color"],
-        input[type="range"] {
-            padding: 0.7rem;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            font-size: 1rem;
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
         
-        input[type="color"] {
-            height: 50px;
-            cursor: pointer;
+        /* Main Layout */
+        .main-layout {
+            display: flex;
+            width: 100%;
+            height: 100vh;
         }
         
-        .logo-canvas {
+        /* Sidebar */
+        .sidebar {
             width: 250px;
-            height: 250px;
-            border-radius: 15px;
-            background: #f8f9fa;
+            background-color: var(--card-bg);
             display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            flex-direction: column;
+            border-right: 1px solid var(--border-color);
             transition: all 0.3s ease;
         }
         
-        .logo-canvas:hover {
-            transform: scale(1.02);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        .sidebar-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem;
+            border-bottom: 1px solid var(--border-color);
         }
         
-        .logo-content {
+        .app-name {
+            font-size: 1.25rem;
+            font-weight: bold;
+        }
+        
+        .sidebar-nav {
+            flex: 1;
+            overflow-y: auto;
+        }
+        
+        .nav-list {
+            list-style: none;
+            padding: 0.5rem 0;
+        }
+        
+        .nav-item {
+            margin-bottom: 0.25rem;
+        }
+        
+        .nav-link {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem 1rem;
+            text-decoration: none;
+            color: var(--light);
+            transition: all 0.2s;
+        }
+        
+        .nav-link:hover {
+            background-color: #334155;
+        }
+        
+        .nav-link.active {
+            background-color: var(--primary);
+        }
+        
+        .sidebar-footer {
+            padding: 1rem;
+            border-top: 1px solid var(--border-color);
+        }
+        
+        .system-status {
+            margin-bottom: 1rem;
+        }
+        
+        .status-indicator {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.25rem;
+        }
+        
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            display: inline-block;
+        }
+        
+        .status-dot.online {
+            background-color: var(--secondary);
+        }
+        
+        .status-dot.offline {
+            background-color: var(--gray);
+        }
+        
+        .status-dot.busy {
+            background-color: var(--warning);
+        }
+        
+        /* Main Content */
+        .main-content {
+            flex: 1;
             display: flex;
             flex-direction: column;
+            overflow: hidden;
+        }
+        
+        .topbar {
+            background-color: var(--card-bg);
+            padding: 1rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .topbar-left {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .breadcrumb {
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+        
+        .topbar-right {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .search-container {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+        
+        .search-input {
+            background-color: var(--sidebar-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 0.5rem 1rem 0.5rem 2.5rem;
+            color: var(--light);
+            width: 300px;
+        }
+        
+        .search-icon {
+            position: absolute;
+            left: 0.75rem;
+            color: var(--gray);
+        }
+        
+        .user-actions {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .icon-btn {
+            background: none;
+            border: none;
+            color: var(--light);
+            cursor: pointer;
+            position: relative;
+        }
+        
+        .notification-badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background-color: var(--danger);
+            color: white;
+            border-radius: 50%;
+            width: 18px;
+            height: 18px;
+            font-size: 0.75rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .user-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: none;
+            border: none;
+            color: var(--light);
+            cursor: pointer;
+        }
+        
+        .user-avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+        
+        .user-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .view-container {
+            flex: 1;
+            padding: 1.5rem;
+            overflow-y: auto;
+        }
+        
+        /* Cards and Components */
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 1.5rem;
+        }
+        
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+        
+        .btn {
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.2s;
+            display: inline-flex;
             align-items: center;
             gap: 0.5rem;
         }
         
-        .logo-icon {
-            font-size: 4rem;
-            margin-bottom: 0.5rem;
-        }
-        
-        .logo-text {
-            font-size: 2rem;
-            font-weight: 700;
-            letter-spacing: 0.5px;
-        }
-        
-        .buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            margin-top: 1rem;
-        }
-        
-        button {
-            padding: 0.8rem 1.5rem;
-            border: none;
-            border-radius: 8px;
-            font-size: 1rem;
-            font-weight: 500;
-            cursor: pointer;
-            transition: all 0.2s ease;
-        }
-        
         .btn-primary {
-            background: #6e8efb;
+            background-color: var(--primary);
             color: white;
         }
         
         .btn-primary:hover {
-            background: #5a7ce7;
+            background-color: var(--primary-dark);
         }
         
         .btn-secondary {
-            background: #f8f9fa;
-            color: #333;
-            border: 1px solid #ddd;
+            background-color: #334155;
+            color: white;
         }
         
         .btn-secondary:hover {
-            background: #e9ecef;
+            background-color: #475569;
         }
         
-        .download-btn {
-            background: #28a745;
+        .btn-danger {
+            background-color: var(--danger);
             color: white;
+        }
+        
+        .btn-danger:hover {
+            background-color: #dc2626;
+        }
+        
+        /* Dashboard */
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .metric-card {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .metric-title {
+            font-size: 0.875rem;
+            color: var(--gray);
+            margin-bottom: 0.5rem;
+        }
+        
+        .metric-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        
+        .metric-change {
+            font-size: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+        
+        .metric-change.positive {
+            color: var(--secondary);
+        }
+        
+        .metric-change.negative {
+            color: var(--danger);
+        }
+        
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .agent-list {
+            list-style: none;
+        }
+        
+        .agent-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .agent-item:last-child {
+            border-bottom: none;
+        }
+        
+        .agent-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .agent-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .agent-info {
+            flex: 1;
+        }
+        
+        .agent-name {
+            font-weight: 600;
+        }
+        
+        .agent-desc {
+            font-size: 0.875rem;
+            color: var(--gray);
+        }
+        
+        /* Agents View */
+        .agent-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .agent-card {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .agent-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+        
+        .agent-details {
+            flex: 1;
+            margin-bottom: 1rem;
+        }
+        
+        .agent-actions {
+            display: flex;
+            gap: 0.5rem;
+        }
+        
+        /* Chat View */
+        .chat-container {
+            display: flex;
+            flex-direction: column;
+            height: 500px;
+            background-color: var(--sidebar-bg);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .chat-messages {
+            flex: 1;
+            padding: 1rem;
+            overflow-y: auto;
+        }
+        
+        .message {
+            margin-bottom: 1rem;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .message.user {
+            align-items: flex-end;
+        }
+        
+        .message.agent {
+            align-items: flex-start;
+        }
+        
+        .message-bubble {
+            padding: 0.75rem 1rem;
+            border-radius: 18px;
+            max-width: 70%;
+        }
+        
+        .user .message-bubble {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .agent .message-bubble {
+            background-color: #334155;
+            color: white;
+        }
+        
+        .chat-input {
+            display: flex;
+            padding: 1rem;
+            background-color: var(--card-bg);
+            border-top: 1px solid var(--border-color);
+        }
+        
+        .chat-input input {
+            flex: 1;
+            padding: 0.75rem;
+            border-radius: 8px;
+            background-color: var(--sidebar-bg);
+            border: 1px solid var(--border-color);
+            color: var(--light);
+            margin-right: 0.5rem;
+        }
+        
+        /* Workflow View */
+        .workflow-canvas {
+            background-color: var(--sidebar-bg);
+            height: 400px;
+            border-radius: 8px;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 1rem;
+        }
+        
+        .node {
+            position: absolute;
+            width: 150px;
+            background-color: var(--primary);
+            border-radius: 8px;
+            padding: 1rem;
+            color: white;
+            text-align: center;
+            cursor: move;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .node-header {
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+        
+        .workflow-actions {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        /* Models View */
+        .model-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .model-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .model-info {
+            flex: 1;
+        }
+        
+        .model-actions {
+            display: flex;
+            gap: 0.5rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 70px;
+            }
+            
+            .nav-text {
+                display: none;
+            }
+            
+            .sidebar-header .app-name {
+                display: none;
+            }
+            
+            .search-input {
+                width: 150px;
+            }
+        }
+    </style>
+</head>
+<body class="dark-theme">
+    <div id="app">
+        <!-- Loading Screen -->
+        <div id="loading-screen" class="loading-screen">
+            <div class="loading-content">
+                <div class="logo-container">
+                    <div class="logo">K</div>
+                    <h1>AgentK</h1>
+                </div>
+                <div class="loading-spinner"></div>
+                <p id="loading-text">Initializing Local AI System...</p>
+            </div>
+        </div>
+
+        <!-- Main Layout -->
+        <div id="main-layout" class="main-layout hidden">
+            <!-- Sidebar -->
+            <aside id="sidebar" class="sidebar">
+                <div class="sidebar-header">
+                    <div class="logo-container">
+                        <div class="logo">K</div>
+                        <span class="app-name">AgentK</span>
+                    </div>
+                </div>
+
+                <nav class="sidebar-nav">
+                    <ul class="nav-list">
+                        <li class="nav-item">
+                            <a href="#dashboard" class="nav-link active" data-view="dashboard">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                                    <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                                </svg>
+                                <span class="nav-text">Dashboard</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#agents" class="nav-link" data-view="agents">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M12 19l7-7 3 3-7 7-3-3z"></path>
+                                    <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path>
+                                    <path d="M2 2l7.586 7.586"></path>
+                                    <circle cx="11" cy="11" r="2"></circle>
+                                </svg>
+                                <span class="nav-text">Agents</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#workflows" class="nav-link" data-view="workflows">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                                </svg>
+                                <span class="nav-text">Workflows</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#chat" class="nav-link" data-view="chat">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                                </svg>
+                                <span class="nav-text">Chat</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#memory" class="nav-link" data-view="memory">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                                    <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                                    <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                                </svg>
+                                <span class="nav-text">Memory</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#models" class="nav-link" data-view="models">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                                    <polyline points="7.5 4.21 12 6.81 16.5 4.21"></polyline>
+                                    <polyline points="7.5 19.79 7.5 14.6 3 12"></polyline>
+                                    <polyline points="21 12 16.5 14.6 16.5 19.79"></polyline>
+                                    <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                                    <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                                </svg>
+                                <span class="nav-text">Models</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+
+                <div class="sidebar-footer">
+                    <div class="system-status">
+                        <div class="status-indicator">
+                            <span class="status-dot online"></span>
+                            <span class="status-text">Local Mode Active</span>
+                        </div>
+                        <small>No cloud dependencies</small>
+                    </div>
+                    <a href="#settings" class="nav-link" data-view="settings">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="3"></circle>
+                            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+                        </svg>
+                        <span class="nav-text">Settings</span>
+                    </a>
+                </div>
+            </aside>
+
+            <!-- Main Content -->
+            <main id="main-content" class="main-content">
+                <!-- Top Navigation -->
+                <header class="topbar">
+                    <div class="topbar-left">
+                        <div class="breadcrumb">
+                            <span id="current-view-name">Dashboard</span>
+                        </div>
+                    </div>
+
+                    <div class="topbar-right">
+                        <div class="search-container">
+                            <input type="text" id="global-search" placeholder="Search agents, workflows..." class="search-input">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="search-icon">
+                                <circle cx="11" cy="11" r="8"></circle>
+                                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                            </svg>
+                        </div>
+
+                        <div class="user-actions">
+                            <button id="notifications-btn" class="icon-btn" aria-label="Notifications">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+                                    <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+                                </svg>
+                                <span class="notification-badge">3</span>
+                            </button>
+
+                            <div class="user-menu">
+                                <button id="user-menu-btn" class="user-btn" aria-label="User menu">
+                                    <div class="user-avatar">
+                                        <div class="logo" style="width: 32px; height: 32px; font-size: 1rem;">U</div>
+                                    </div>
+                                    <span class="user-name">Local User</span>
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <polyline points="6 9 12 15 18 9"></polyline>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </header>
+
+                <!-- View Container -->
+                <div id="view-container" class="view-container">
+                    <!-- Views will be dynamically loaded here -->
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script>
+        // Mock initialization function
+        async function initializeApp() {
+            console.log('Initializing AgentK System...');
+            
+            // Simulate async setup tasks with loading messages
+            const loadingMessages = [
+                "Loading core modules...",
+                "Initializing local LLM connectors...",
+                "Mounting memory systems...",
+                "Starting agent orchestrator...",
+                "Finalizing UI components..."
+            ];
+            
+            const loadingText = document.getElementById('loading-text');
+            for (let i = 0; i < loadingMessages.length; i++) {
+                loadingText.textContent = loadingMessages[i];
+                await new Promise(resolve => setTimeout(resolve, 500)); // 0.5 second delay
+            }
+
+            // Hide loading screen and show main layout
+            const loadingScreen = document.getElementById('loading-screen');
+            const mainLayout = document.getElementById('main-layout');
+
+            if (loadingScreen && mainLayout) {
+                loadingScreen.style.display = 'none';
+                mainLayout.classList.remove('hidden');
+            }
+
+            // Set up navigation and load the initial view
+            setupNavigation();
+            loadDashboard(); // Load the dashboard by default
+        }
+
+        // Navigation setup
+        function setupNavigation() {
+            const navLinks = document.querySelectorAll('.nav-link');
+            const currentViewName = document.getElementById('current-view-name');
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+
+                    // Update active link
+                    navLinks.forEach(l => l.classList.remove('active'));
+                    link.classList.add('active');
+
+                    // Update breadcrumb
+                    const viewName = link.querySelector('.nav-text').textContent;
+                    currentViewName.textContent = viewName;
+
+                    // Get target view
+                    const view = link.dataset.view;
+
+                    // Load the selected view
+                    loadView(view);
+                });
+            });
+        }
+
+        // View loading functions
+        function loadDashboard() {
+            const viewContainer = document.getElementById('view-container');
+
+            viewContainer.innerHTML = `
+                <div class="dashboard">
+                    <div class="metrics-grid">
+                        <div class="metric-card">
+                            <div class="metric-title">Active Agents</div>
+                            <div class="metric-value">3</div>
+                            <div class="metric-change positive">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="18 15 12 9 6 15"></polyline>
+                                </svg>
+                                +1 this week
+                            </div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-title">Tasks Completed</div>
+                            <div class="metric-value">24</div>
+                            <div class="metric-change positive">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="18 15 12 9 6 15"></polyline>
+                                </svg>
+                                +5 today
+                            </div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-title">System Load</div>
+                            <div class="metric-value">68%</div>
+                            <div class="metric-change negative">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="6 9 12 15 18 9"></polyline>
+                                </svg>
+                                High usage
+                            </div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-title">Local Models</div>
+                            <div class="metric-value">2</div>
+                            <div class="metric-change positive">Connected</div>
+                        </div>
+                    </div>
+
+                    <div class="dashboard-grid">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">Recent Agents</h3>
+                                <button class="btn btn-primary" style="padding: 0.5rem 0.75rem;">+ New</button>
+                            </div>
+                            <ul class="agent-list">
+                                <li class="agent-item">
+                                    <div class="agent-avatar">
+                                        <div class="logo" style="width: 40px; height: 40px; font-size: 1rem;">A</div>
+                                    </div>
+                                    <div class="agent-info">
+                                        <div class="agent-name">Archivist</div>
+                                        <div class="agent-desc">Knowledge organizer</div>
+                                    </div>
+                                    <span class="status-dot online"></span>
+                                </li>
+                                <li class="agent-item">
+                                    <div class="agent-avatar">
+                                        <div class="logo" style="width: 40px; height: 40px; font-size: 1rem;">S</div>
+                                    </div>
+                                    <div class="agent-info">
+                                        <div class="agent-name">Scribe</div>
+                                        <div class="agent-desc">Content writer</div>
+                                    </div>
+                                    <span class="status-dot busy"></span>
+                                </li>
+                                <li class="agent-item">
+                                    <div class="agent-avatar">
+                                        <div class="logo" style="width: 40px; height: 40px; font-size: 1rem;">An</div>
+                                    </div>
+                                    <div class="agent-info">
+                                        <div class="agent-name">Analyst</div>
+                                        <div class="agent-desc">Data interpreter</div>
+                                    </div>
+                                    <span class="status-dot online"></span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">Quick Actions</h3>
+                            </div>
+                            <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+                                <button class="btn btn-primary" style="justify-content: center; display: flex; align-items: center; gap: 0.5rem;">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M12 5v14"></path>
+                                        <path d="M5 12h14"></path>
+                                    </svg>
+                                    Create Agent
+                                </button>
+                                <button class="btn btn-secondary" style="justify-content: center; display: flex; align-items: center; gap: 0.5rem;">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                                    </svg>
+                                    Design Workflow
+                                </button>
+                                <button class="btn btn-secondary" style="justify-content: center; display: flex; align-items: center; gap: 0.5rem;">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                                    </svg>
+                                    Start Chat
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function loadAgents() {
+            const viewContainer = document.getElementById('view-container');
+
+            viewContainer.innerHTML = `
+                <div class="agents-view">
+                    <div class="card-header">
+                        <h2>Agent Management</h2>
+                        <button class="btn btn-primary">+ Create New Agent</button>
+                    </div>
+                    
+                    <div class="agent-grid">
+                        <div class="card agent-card">
+                            <div class="agent-header">
+                                <div class="agent-avatar">
+                                    <div class="logo" style="width: 40px; height: 40px; font-size: 1rem;">A</div>
+                                </div>
+                                <div class="agent-info">
+                                    <h3>Archivist</h3>
+                                    <p>Knowledge organizer and retriever</p>
+                                </div>
+                                <span class="status-dot online"></span>
+                            </div>
+                            <div class="agent-details">
+                                <p><strong>Model:</strong> LM Studio - Mistral 7B</p>
+                                <p><strong>Capabilities:</strong> Web Research, Data Analysis</p>
+                            </div>
+                            <div class="agent-actions">
+                                <button class="btn btn-secondary">Edit</button>
+                                <button class="btn btn-danger">Delete</button>
+                            </div>
+                        </div>
+                        
+                        <div class="card agent-card">
+                            <div class="agent-header">
+                                <div class="agent-avatar">
+                                    <div class="logo" style="width: 40px; height: 40px; font-size: 1rem;">S</div>
+                                </div>
+                                <div class="agent-info">
+                                    <h3>Scribe</h3>
+                                    <p>Content creator and editor</p>
+                                </div>
+                                <span class="status-dot busy"></span>
+                            </div>
+                            <div class="agent-details">
+                                <p><strong>Model:</strong> Ollama - Llama2</p>
+                                <p><strong>Capabilities:</strong> Content Writing, Summarization</p>
+                            </div>
+                            <div class="agent-actions">
+                                <button class="btn btn-secondary">Edit</button>
+                                <button class="btn btn-danger">Delete</button>
+                            </div>
+                        </div>
+                        
+                        <div class="card agent-card">
+                            <div class="agent-header">
+                                <div class="agent-avatar">
+                                    <div class="logo" style="width: 40px; height: 40px; font-size: 1rem;">An</div>
+                                </div>
+                                <div class="agent-info">
+                                    <h3>Analyst</h3>
+                                    <p>Data interpreter and visualizer</p>
+                                </div>
+                                <span class="status-dot offline"></span>
+                            </div>
+                            <div class="agent-details">
+                                <p><strong>Model:</strong> Local - Custom Model</p>
+                                <p><strong>Capabilities:</strong> Data Analysis, Visualization</p>
+                            </div>
+                            <div class="agent-actions">
+                                <button class="btn btn-secondary">Edit</button>
+                                <button class="btn btn-danger">Delete</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function loadChat() {
+            const viewContainer = document.getElementById('view-container');
+
+            viewContainer.innerHTML = `
+                <div class="chat-view">
+                    <div class="card">
+                        <div class="card-header">
+                            <h2>Chat with Agents</h2>
+                            <select class="form-select" style="width: auto; background-color: var(--sidebar-bg); color: var(--light); border: 1px solid var(--border-color); padding: 0.5rem; border-radius: 8px;">
+                                <option>Select Agent</option>
+                                <option>Archivist</option>
+                                <option>Scribe</option>
+                                <option>Analyst</option>
+                            </select>
+                        </div>
+                        
+                        <div class="chat-container">
+                            <div class="chat-messages">
+                                <div class="message agent">
+                                    <div class="message-bubble">
+                                        Hello! I'm your local AI assistant. How can I help you today?
+                                    </div>
+                                </div>
+                                <div class="message user">
+                                    <div class="message-bubble">
+                                        Can you help me research the latest trends in AI?
+                                    </div>
+                                </div>
+                                <div class="message agent">
+                                    <div class="message-bubble">
+                                        Of course! I'll search for the most recent information on AI trends.
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="chat-input">
+                                <input type="text" placeholder="Type your message here...">
+                                <button class="btn btn-primary">Send</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function loadWorkflowBuilder() {
+            const viewContainer = document.getElementById('view-container');
+
+            viewContainer.innerHTML = `
+                <div class="workflow-view">
+                    <div class="card">
+                        <div class="card-header">
+                            <h2>Workflow Builder</h2>
+                            <button class="btn btn-primary">+ New Workflow</button>
+                        </div>
+                        
+                        <div class="workflow-canvas">
+                            <div class="node" style="top: 50px; left: 50px;">
+                                <div class="node-header">Start</div>
+                                <div class="node-body">Trigger</div>
+                            </div>
+                            <div class="node" style="top: 50px; left: 250px;">
+                                <div class="node-header">Research Task</div>
+                                <div class="node-body">Agent: Archivist</div>
+                            </div>
+                            <div class="node" style="top: 50px; left: 450px;">
+                                <div class="node-header">Write Report</div>
+                                <div class="node-body">Agent: Scribe</div>
+                            </div>
+                            <div class="node" style="top: 50px; left: 650px;">
+                                <div class="node-header">End</div>
+                                <div class="node-body">Complete</div>
+                            </div>
+                        </div>
+                        
+                        <div class="workflow-actions">
+                            <button class="btn btn-primary">Save Workflow</button>
+                            <button class="btn btn-secondary">Run Workflow</button>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function loadMemory() {
+            const viewContainer = document.getElementById('view-container');
+
+            viewContainer.innerHTML = `
+                <div class="memory-view">
+                    <div class="card">
+                        <div class="card-header">
+                            <h2>Memory Vault</h2>
+                            <button class="btn btn-primary">+ Add Memory</button>
+                        </div>
+                        
+                        <div class="memory-list">
+                            <div class="memory-item card">
+                                <div class="memory-info">
+                                    <h3>Project Research Notes</h3>
+                                    <p>Created: 2023-05-15 | Updated: 2023-05-20</p>
+                                    <p>Size: 2.4 MB | Type: Text</p>
+                                </div>
+                                <div class="memory-actions">
+                                    <button class="btn btn-secondary">View</button>
+                                    <button class="btn btn-danger">Delete</button>
+                                </div>
+                            </div>
+                            
+                            <div class="memory-item card">
+                                <div class="memory-info">
+                                    <h3>Customer Conversation Logs</h3>
+                                    <p>Created: 2023-05-10 | Updated: 2023-05-18</p>
+                                    <p>Size: 5.1 MB | Type: JSON</p>
+                                </div>
+                                <div class="memory-actions">
+                                    <button class="btn btn-secondary">View</button>
+                                    <button class="btn btn-danger">Delete</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function loadModelManager() {
+            const viewContainer = document.getElementById('view-container');
+
+            viewContainer.innerHTML = `
+                <div class="models-view">
+                    <div class="card">
+                        <div class="card-header">
+                            <h2>Model Management</h2>
+                            <button class="btn btn-primary">+ Add Model</button>
+                        </div>
+                        
+                        <div class="model-list">
+                            <div class="model-item card">
+                                <div class="model-info">
+                                    <h3>LM Studio - Mistral 7B</h3>
+                                    <p>Status: <span class="status-dot online"></span> Connected</p>
+                                    <p>Endpoint: http://localhost:1234/v1</p>
+                                </div>
+                                <div class="model-actions">
+                                    <button class="btn btn-secondary">Test</button>
+                                    <button class="btn btn-danger">Remove</button>
+                                </div>
+                            </div>
+                            
+                            <div class="model-item card">
+                                <div class="model-info">
+                                    <h3>Ollama - Llama2</h3>
+                                    <p>Status: <span class="status-dot online"></span> Connected</p>
+                                    <p>Endpoint: http://localhost:11434/api/generate</p>
+                                </div>
+                                <div class="model-actions">
+                                    <button class="btn btn-secondary">Test</button>
+                                    <button class="btn btn-danger">Remove</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function loadSettings() {
+            const viewContainer = document.getElementById('view-container');
+
+            viewContainer.innerHTML = `
+                <div class="settings-view">
+                    <div class="card">
+                        <div class="card-header">
+                            <h2>Settings</h2>
+                            <button class="btn btn-primary">Save Settings</button>
+                        </div>
+                        
+                        <div class="settings-form">
+                            <div class="form-group">
+                                <label>Theme</label>
+                                <select class="form-select" style="width: 100%; background-color: var(--sidebar-bg); color: var(--light); border: 1px solid var(--border-color); padding: 0.75rem; border-radius: 8px; margin-top: 0.5rem;">
+                                    <option>Dark</option>
+                                    <option>Light</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group" style="margin-top: 1rem;">
+                                <label>Default Model</label>
+                                <select class="form-select" style="width: 100%; background-color: var(--sidebar-bg); color: var(--light); border: 1px solid var(--border-color); padding: 0.75rem; border-radius: 8px; margin-top: 0.5rem;">
+                                    <option>LM Studio - Mistral 7B</option>
+                                    <option>Ollama - Llama2</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group" style="margin-top: 1rem;">
+                                <label>Auto-save Workflows</label>
+                                <div style="margin-top: 0.5rem;">
+                                    <label style="display: flex; align-items: center; gap: 0.5rem;">
+                                        <input type="checkbox" checked> Enable auto-save
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function loadView(view) {
+            const viewContainer = document.getElementById('view-container');
+            
+            // Clear current content
+            viewContainer.innerHTML = '<div class="loading-view">Loading...</div>';
+
+            try {
+                switch (view) {
+                    case 'dashboard':
+                        loadDashboard();
+                        break;
+                    case 'agents':
+                        loadAgents();
+                        break;
+                    case 'chat':
+                        loadChat();
+                        break;
+                    case 'workflows':
+                        loadWorkflowBuilder();
+                        break;
+                    case 'memory':
+                        loadMemory();
+                        break;
+                    case 'models':
+                        loadModelManager();
+                        break;
+                    case 'settings':
+                        loadSettings();
+                        break;
+                    default:
+                        viewContainer.innerHTML = `
+                            <div class="card">
+                                <h2>Not Found</h2>
+                                <p>The requested view could not be found.</p>
+                            </div>
+                        `;
+                }
+            } catch (err) {
+                viewContainer.innerHTML = `<div class="error">Failed to load view: ${err.message}</div>`;
+                console.error(err);
+            }
+        }
+
+        // Start the app when the DOM is fully loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            initializeApp().catch(console.error);
+        });
+    </script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgentK Collaborator System</title>
+    <style>
+        :root {
+            --primary: #4f46e5;
+            --primary-dark: #4338ca;
+            --secondary: #10b981;
+            --dark: #1f2937;
+            --light: #f3f4f6;
+            --gray: #9ca3af;
+            --danger: #ef4444;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #0f172a;
+            color: var(--light);
+            display: flex;
+            min-height: 100vh;
+        }
+        
+        .sidebar {
+            width: 250px;
+            background-color: #1e293b;
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            border-right: 1px solid #334155;
+        }
+        
+        .logo {
             display: flex;
             align-items: center;
             gap: 0.5rem;
-            padding: 0.8rem 1.5rem;
+            margin-bottom: 2rem;
+            padding: 0.5rem;
         }
         
-        .download-btn:hover {
-            background: #218838;
+        .logo-icon {
+            background: var(--primary);
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         
-        footer {
-            text-align: center;
+        .nav-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem 1rem;
+            border-radius: 8px;
+            margin-bottom: 0.5rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .nav-item:hover {
+            background-color: #334155;
+        }
+        
+        .nav-item.active {
+            background-color: var(--primary);
+        }
+        
+        .main-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .topbar {
+            background-color: #1e293b;
+            padding: 1rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #334155;
+        }
+        
+        .search-bar {
+            display: flex;
+            align-items: center;
+            background-color: #0f172a;
+            border-radius: 8px;
+            padding: 0.5rem 1rem;
+            width: 300px;
+        }
+        
+        .search-bar input {
+            background: transparent;
+            border: none;
+            color: var(--light);
+            outline: none;
+            width: 100%;
+            margin-left: 0.5rem;
+        }
+        
+        .user-menu {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .status-indicator {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+        }
+        
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: var(--secondary);
+        }
+        
+        .content {
+            flex: 1;
             padding: 1.5rem;
-            color: #6c757d;
-            font-size: 0.9rem;
-            border-top: 1px solid #eee;
+            overflow-y: auto;
         }
         
-        .range-value {
-            font-weight: 500;
-            color: #6e8efb;
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .card {
+            background-color: #1e293b;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        
+        .card-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+        }
+        
+        .agent-list {
+            list-style: none;
+        }
+        
+        .agent-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #334155;
+        }
+        
+        .agent-item:last-child {
+            border-bottom: none;
+        }
+        
+        .agent-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .agent-info {
+            flex: 1;
+        }
+        
+        .agent-name {
+            font-weight: 600;
+        }
+        
+        .agent-desc {
+            font-size: 0.875rem;
+            color: var(--gray);
+        }
+        
+        .agent-status {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+        
+        .online {
+            background-color: var(--secondary);
+        }
+        
+        .offline {
+            background-color: var(--gray);
+        }
+        
+        .busy {
+            background-color: #f59e0b;
+        }
+        
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .metric-card {
+            background-color: #1e293b;
+            border-radius: 8px;
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .metric-title {
+            font-size: 0.875rem;
+            color: var(--gray);
+            margin-bottom: 0.5rem;
+        }
+        
+        .metric-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        
+        .metric-change {
+            font-size: 0.75rem;
+            margin-top: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+        
+        .positive {
+            color: var(--secondary);
+        }
+        
+        .negative {
+            color: var(--danger);
+        }
+        
+        .btn {
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+        }
+        
+        .btn-secondary {
+            background-color: #334155;
+            color: white;
+        }
+        
+        .btn-secondary:hover {
+            background-color: #475569;
+        }
+        
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+        
+        .modal-content {
+            background-color: #1e293b;
+            border-radius: 12px;
+            width: 500px;
+            max-width: 90%;
+            padding: 1.5rem;
+        }
+        
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .modal-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+        
+        .close-modal {
+            background: none;
+            border: none;
+            color: var(--gray);
+            cursor: pointer;
+            font-size: 1.5rem;
+        }
+        
+        .form-group {
+            margin-bottom: 1rem;
+        }
+        
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+        
+        .form-input {
+            width: 100%;
+            padding: 0.75rem;
+            border-radius: 8px;
+            background-color: #0f172a;
+            border: 1px solid #334155;
+            color: var(--light);
+        }
+        
+        .form-select {
+            width: 100%;
+            padding: 0.75rem;
+            border-radius: 8px;
+            background-color: #0f172a;
+            border: 1px solid #334155;
+            color: var(--light);
+        }
+        
+        .modal-footer {
+            display: flex;
+            justify-content: flex-end;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .tab-container {
+            margin-top: 1.5rem;
+        }
+        
+        .tabs {
+            display: flex;
+            border-bottom: 1px solid #334155;
+            margin-bottom: 1.5rem;
+        }
+        
+        .tab {
+            padding: 0.75rem 1.5rem;
+            cursor: pointer;
+            border-bottom: 2px solid transparent;
+        }
+        
+        .tab.active {
+            border-bottom: 2px solid var(--primary);
+            color: var(--primary);
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .chat-container {
+            display: flex;
+            flex-direction: column;
+            height: 500px;
+            background-color: #0f172a;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .chat-messages {
+            flex: 1;
+            padding: 1rem;
+            overflow-y: auto;
+        }
+        
+        .message {
+            margin-bottom: 1rem;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .message.user {
+            align-items: flex-end;
+        }
+        
+        .message.agent {
+            align-items: flex-start;
+        }
+        
+        .message-bubble {
+            padding: 0.75rem 1rem;
+            border-radius: 18px;
+            max-width: 70%;
+        }
+        
+        .user .message-bubble {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .agent .message-bubble {
+            background-color: #334155;
+            color: white;
+        }
+        
+        .chat-input {
+            display: flex;
+            padding: 1rem;
+            background-color: #1e293b;
+            border-top: 1px solid #334155;
+        }
+        
+        .chat-input input {
+            flex: 1;
+            padding: 0.75rem;
+            border-radius: 8px;
+            background-color: #0f172a;
+            border: 1px solid #334155;
+            color: var(--light);
+            margin-right: 0.5rem;
+        }
+        
+        .workflow-canvas {
+            background-color: #0f172a;
+            height: 400px;
+            border-radius: 8px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .node {
+            position: absolute;
+            width: 120px;
+            background-color: var(--primary);
+            border-radius: 8px;
+            padding: 0.75rem;
+            color: white;
+            text-align: center;
+            cursor: move;
+        }
+        
+        .connection {
+            position: absolute;
+            background-color: var(--secondary);
+            height: 3px;
+            transform-origin: 0 0;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>Chat App Logo Generator</h1>
-            <p class="subtitle">Create a custom logo for your chat application</p>
-        </header>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="logo">
+            <div class="logo-icon">LA</div>
+            <span>Local Automaton</span>
+        </div>
         
-        <div class="main-content">
-            <div class="controls">
-                <div class="control-group">
-                    <label for="appName">App Name</label>
-                    <input type="text" id="appName" value="ChatAI" placeholder="Enter app name">
-                </div>
-                
-                <div class="control-group">
-                    <label for="iconSelect">Logo Icon</label>
-                    <select id="iconSelect" class="form-control">
-                        <option value="💬">💬 Speech Bubble</option>
-                        <option value="🤖">🤖 Robot</option>
-                        <option value="🚀">🚀 Rocket</option>
-                        <option value="⭐">⭐ Star</option>
-                        <option value="🌐">🌐 Globe</option>
-                        <option value="🔒">🔒 Lock</option>
-                        <option value="⚡">⚡ Lightning</option>
-                        <option value="❤️">❤️ Heart</option>
-                    </select>
-                </div>
-                
-                <div class="control-group">
-                    <label for="bgColor">Background Color</label>
-                    <input type="color" id="bgColor" value="#6e8efb">
-                </div>
-                
-                <div class="control-group">
-                    <label for="textColor">Text Color</label>
-                    <input type="color" id="textColor" value="#ffffff">
-                </div>
-                
-                <div class="control-group">
-                    <label for="fontSize">Font Size: <span id="fontSizeValue" class="range-value">2rem</span></label>
-                    <input type="range" id="fontSize" min="1" max="4" step="0.1" value="2">
-                </div>
-                
-                <div class="control-group">
-                    <label for="roundedCorners">Rounded Corners: <span id="cornerValue" class="range-value">15px</span></label>
-                    <input type="range" id="roundedCorners" min="0" max="30" step="1" value="15">
-                </div>
+        <div class="nav-item active">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                <polyline points="9 22 9 12 15 12 15 22"></polyline>
+            </svg>
+            <span>Dashboard</span>
+        </div>
+        
+        <div class="nav-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 19l7-7 3 3-7 7-3-3z"></path>
+                <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path>
+                <path d="M2 2l7.586 7.586"></path>
+                <circle cx="11" cy="11" r="2"></circle>
+            </svg>
+            <span>Agents</span>
+        </div>
+        
+        <div class="nav-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+            </svg>
+            <span>Workflows</span>
+        </div>
+        
+        <div class="nav-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+            </svg>
+            <span>Chat</span>
+        </div>
+        
+        <div class="nav-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 16 14"></polyline>
+            </svg>
+            <span>History</span>
+        </div>
+        
+        <div class="nav-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+                <line x1="12" y1="9" x2="12" y2="13"></line>
+                <line x1="12" y1="17" x2="12.01" y2="17"></line>
+            </svg>
+            <span>Settings</span>
+        </div>
+        
+        <div style="margin-top: auto; padding: 1rem;">
+            <div class="status-indicator">
+                <div class="status-dot"></div>
+                <span>Local Mode Active</span>
+            </div>
+            <div style="font-size: 0.75rem; color: var(--gray); margin-top: 0.5rem;">
+                No cloud dependencies
+            </div>
+        </div>
+    </div>
+    
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Topbar -->
+        <div class="topbar">
+            <div class="search-bar">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+                <input type="text" placeholder="Search agents, workflows...">
             </div>
             
-            <div class="preview">
-                <h3>Logo Preview</h3>
-                <div class="logo-canvas" id="logoPreview">
-                    <div class="logo-content">
-                        <div class="logo-icon">💬</div>
-                        <div class="logo-text">ChatAI</div>
-                    </div>
+            <div class="user-menu">
+                <div class="status-indicator">
+                    <div class="status-dot"></div>
+                    <span>LM Studio: Connected</span>
                 </div>
-                
-                <div class="buttons">
-                    <button class="btn-primary" id="randomBtn">Randomize</button>
-                    <button class="download-btn" id="downloadBtn">Download Logo</button>
-                </div>
+                <button class="btn btn-primary" onclick="openModal('createAgentModal')">+ New Agent</button>
             </div>
         </div>
         
-        <footer>
-            <p>Generated logos are free to use for any purpose</p>
-        </footer>
+        <!-- Content -->
+        <div class="content">
+            <h1 style="margin-bottom: 1.5rem;">Collaborator System Dashboard</h1>
+            
+            <!-- Metrics -->
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <div class="metric-title">Active Agents</div>
+                    <div class="metric-value">7</div>
+                    <div class="metric-change positive">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="18 15 12 9 6 15"></polyline>
+                        </svg>
+                        +2 from last week
+                    </div>
+                </div>
+                
+                <div class="metric-card">
+                    <div class="metric-title">Tasks Completed</div>
+                    <div class="metric-value">142</div>
+                    <div class="metric-change positive">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="18 15 12 9 6 15"></polyline>
+                        </svg>
+                        +38 from last week
+                    </div>
+                </div>
+                
+                <div class="metric-card">
+                    <div class="metric-title">Model Performance</div>
+                    <div class="metric-value">92%</div>
+                    <div class="metric-change positive">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="18 15 12 9 6 15"></polyline>
+                        </svg>
+                        +3% from last week
+                    </div>
+                </div>
+                
+                <div class="metric-card">
+                    <div class="metric-title">Local Resources</div>
+                    <div class="metric-value">64%</div>
+                    <div class="metric-change negative">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                        -12% from last week
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Dashboard Grid -->
+            <div class="dashboard-grid">
+                <!-- Active Agents Card -->
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">Active Agents</div>
+                        <button class="btn btn-secondary" style="padding: 0.25rem 0.5rem; font-size: 0.875rem;">View All</button>
+                    </div>
+                    
+                    <ul class="agent-list">
+                        <li class="agent-item">
+                            <div class="agent-avatar">RA</div>
+                            <div class="agent-info">
+                                <div class="agent-name">Research Assistant</div>
+                                <div class="agent-desc">Web research and analysis</div>
+                            </div>
+                            <div class="agent-status online"></div>
+                        </li>
+                        
+                        <li class="agent-item">
+                            <div class="agent-avatar">CA</div>
+                            <div class="agent-info">
+                                <div class="agent-name">Coding Assistant</div>
+                                <div class="agent-desc">Code generation and review</div>
+                            </div>
+                            <div class="agent-status busy"></div>
+                        </li>
+                        
+                        <li class="agent-item">
+                            <div class="agent-avatar">WA</div>
+                            <div class="agent-info">
+                                <div class="agent-name">Writing Assistant</div>
+                                <div class="agent-desc">Content creation</div>
+                            </div>
+                            <div class="agent-status online"></div>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Recent Tasks Card -->
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">Recent Tasks</div>
+                        <button class="btn btn-secondary" style="padding: 0.25rem 0.5rem; font-size: 0.875rem;">View All</button>
+                    </div>
+                    
+                    <ul class="agent-list">
+                        <li class="agent-item">
+                            <div class="agent-info">
+                                <div class="agent-name">Research AI trends</div>
+                                <div class="agent-desc">Completed 15 min ago</div>
+                            </div>
+                        </li>
+                        
+                        <li class="agent-item">
+                            <div class="agent-info">
+                                <div class="agent-name">Generate report</div>
+                                <div class="agent-desc">Completed 1 hour ago</div>
+                            </div>
+                        </li>
+                        
+                        <li class="agent-item">
+                            <div class="agent-info">
+                                <div class="agent-name">Code review</div>
+                                <div class="agent-desc">In progress</div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Model Connections Card -->
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">Model Connections</div>
+                        <button class="btn btn-secondary" style="padding: 0.25rem 0.5rem; font-size: 0.875rem;">Manage</button>
+                    </div>
+                    
+                    <ul class="agent-list">
+                        <li class="agent-item">
+                            <div class="agent-info">
+                                <div class="agent-name">LM Studio</div>
+                                <div class="agent-desc">Connected - Mistral 7B</div>
+                            </div>
+                            <div class="agent-status online"></div>
+                        </li>
+                        
+                        <li class="agent-item">
+                            <div class="agent-info">
+                                <div class="agent-name">Ollama</div>
+                                <div class="agent-desc">Connected - Llama2</div>
+                            </div>
+                            <div class="agent-status online"></div>
+                        </li>
+                        
+                        <li class="agent-item">
+                            <div class="agent-info">
+                                <div class="agent-name">Local TensorRT</div>
+                                <div class="agent-desc">Not configured</div>
+                            </div>
+                            <div class="agent-status off"></div>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Quick Actions Card -->
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">Quick Actions</div>
+                    </div>
+                    
+                    <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                        <button class="btn btn-primary" style="justify-content: center; display: flex; align-items: center; gap: 0.5rem;" onclick="openModal('createAgentModal')">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 5v14"></path>
+                                <path d="M5 12h14"></path>
+                            </svg>
+                            Create New Agent
+                        </button>
+                        
+                        <button class="btn btn-secondary" style="justify-content: center; display: flex; align-items: center; gap: 0.5rem;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                            </svg>
+                            Design Workflow
+                        </button>
+                        
+                        <button class="btn btn-secondary" style="justify-content: center; display: flex; align-items: center; gap: 0.5rem;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                            </svg>
+                            Start Conversation
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Create Agent Modal -->
+    <div class="modal" id="createAgentModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-title">Create New Agent</div>
+                <button class="close-modal" onclick="closeModal('createAgentModal')">&times;</button>
+            </div>
+            
+            <div class="form-group">
+                <label class="form-label">Agent Name</label>
+                <input type="text" class="form-input" placeholder="e.g., Research Assistant">
+            </div>
+            
+            <div class="form-group">
+                <label class="form-label">Description</label>
+                <input type="text" class="form-input" placeholder="What does this agent do?">
+            </div>
+            
+            <div class="form-group">
+                <label class="form-label">Model</label>
+                <select class="form-select">
+                    <option>LM Studio - Mistral 7B</option>
+                    <option>Ollama - Llama2</option>
+                    <option>Ollama - CodeLlama</option>
+                    <option>Local - Custom Model</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label class="form-label">Capabilities</label>
+                <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+                    <label style="display: flex; align-items: center; gap: 0.25rem;">
+                        <input type="checkbox"> Web Research
+                    </label>
+                    <label style="display: flex; align-items: center; gap: 0.25rem;">
+                        <input type="checkbox"> Code Generation
+                    </label>
+                    <label style="display: flex; align-items: center; gap: 0.25rem;">
+                        <input type="checkbox"> Data Analysis
+                    </label>
+                    <label style="display: flex; align-items: center; gap: 0.25rem;">
+                        <input type="checkbox"> Content Writing
+                    </label>
+                </div>
+            </div>
+            
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="closeModal('createAgentModal')">Cancel</button>
+                <button class="btn btn-primary">Create Agent</button>
+            </div>
+        </div>
     </div>
 
     <script>
-        // Get DOM elements
-        const appNameInput = document.getElementById('appName');
-        const iconSelect = document.getElementById('iconSelect');
-        const bgColorInput = document.getElementById('bgColor');
-        const textColorInput = document.getElementById('textColor');
-        const fontSizeInput = document.getElementById('fontSize');
-        const fontSizeValue = document.getElementById('fontSizeValue');
-        const roundedCornersInput = document.getElementById('roundedCorners');
-        const cornerValue = document.getElementById('cornerValue');
-        const logoPreview = document.getElementById('logoPreview');
-        const randomBtn = document.getElementById('randomBtn');
-        const downloadBtn = document.getElementById('downloadBtn');
-        
-        // Update logo function
-        function updateLogo() {
-            const appName = appNameInput.value || 'ChatAI';
-            const icon = iconSelect.value;
-            const bgColor = bgColorInput.value;
-            const textColor = textColorInput.value;
-            const fontSize = `${fontSizeInput.value}rem`;
-            const borderRadius = `${roundedCornersInput.value}px`;
-            
-            // Update preview
-            logoPreview.style.backgroundColor = bgColor;
-            logoPreview.style.borderRadius = borderRadius;
-            
-            const logoContent = logoPreview.querySelector('.logo-content');
-            logoContent.innerHTML = `
-                <div class="logo-icon">${icon}</div>
-                <div class="logo-text" style="color: ${textColor}; font-size: ${fontSize}">${appName}</div>
-            `;
-            
-            // Update range values
-            fontSizeValue.textContent = fontSize;
-            cornerValue.textContent = borderRadius;
+        function openModal(id) {
+            document.getElementById(id).style.display = 'flex';
         }
         
-        // Set up event listeners
-        appNameInput.addEventListener('input', updateLogo);
-        iconSelect.addEventListener('change', updateLogo);
-        bgColorInput.addEventListener('input', updateLogo);
-        textColorInput.addEventListener('input', updateLogo);
-        fontSizeInput.addEventListener('input', updateLogo);
-        roundedCornersInput.addEventListener('input', updateLogo);
+        function closeModal(id) {
+            document.getElementById(id).style.display = 'none';
+        }
         
-        // Randomize logo
-        randomBtn.addEventListener('click', function() {
-            // Random app name
-            const appNames = ['ChatAI', 'TalkBot', 'Convo', 'MessageHub', 'Dialogue', 'ChatSync', 'ConnectNow', 'TalkSpace'];
-            appNameInput.value = appNames[Math.floor(Math.random() * appNames.length)];
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.style.display = 'none';
+            }
+        }
+        
+        // Sample chat functionality
+        function sendMessage() {
+            const input = document.querySelector('.chat-input input');
+            const message = input.value.trim();
             
-            // Random icon
-            const icons = iconSelect.options;
-            iconSelect.selectedIndex = Math.floor(Math.random() * icons.length);
-            
-            // Random colors
-            const colors = ['#6e8efb', '#a777e3', '#5c7cfa', '#37b9c5', '#4dabf7', '#20c997', '#f783ac', '#ff922b'];
-            bgColorInput.value = colors[Math.floor(Math.random() * colors.length)];
-            textColorInput.value = '#ffffff';
-            
-            // Random font size
-            fontSizeInput.value = (Math.random() * 2 + 1.5).toFixed(1);
-            
-            // Random corners
-            roundedCornersInput.value = Math.floor(Math.random() * 25);
-            
-            // Update the logo
-            updateLogo();
+            if (message) {
+                const messagesContainer = document.querySelector('.chat-messages');
+                
+                // Add user message
+                const userMessageElem = document.createElement('div');
+                userMessageElem.className = 'message user';
+                userMessageElem.innerHTML = `<div class="message-bubble">${message}</div>`;
+                messagesContainer.appendChild(userMessageElem);
+                
+                // Clear input
+                input.value = '';
+                
+                // Simulate agent response
+                setTimeout(() => {
+                    const agentMessageElem = document.createElement('div');
+                    agentMessageElem.className = 'message agent';
+                    agentMessageElem.innerHTML = `<div class="message-bubble">I'm processing your request: "${message}". This is a simulated response from your local AI agent.</div>`;
+                    messagesContainer.appendChild(agentMessageElem);
+                    
+                    // Scroll to bottom
+                    messagesContainer.scrollTop = messagesContainer.scrollHeight;
+                }, 1000);
+                
+                // Scroll to bottom
+                messagesContainer.scrollTop = messagesContainer.scrollHeight;
+            }
+        }
+        
+        // Add event listener for Enter key in chat input
+        document.querySelector('.chat-input input')?.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                sendMessage();
+            }
         });
-        
-        // Download functionality (simulated)
-        downloadBtn.addEventListener('click', function() {
-            alert('Logo download functionality would be implemented here. In a real application, this would generate and download a PNG image.');
-        });
-        
-        // Initialize logo
-        updateLogo();
     </script>
 </body>
 </html>
+
+    <script>
+        // Function to initialize the app
+        async function initializeApp() {
+            const viewContainer = document.getElementById('viewContainer');
+            const urlParams = new URLSearchParams(window.location.search);
+            const view = urlParams.get('view') || 'dashboard';
+
+            try {
+                switch(view) {
+                    case 'dashboard':
+                        // Load dashboard view
+                        viewContainer.innerHTML = `
+                            <div class="dashboard-grid">
+                                <!-- Dashboard content here -->
+                            </div>
+                        `;
+                        break;
+                    case 'agents':
+                        // Load agents view
+                        viewContainer.innerHTML = `
+                            <div class="agent-list>
+                                <!-- Agents content here -->
+                            </div>
+                        `;
+                        break;
+                    case 'workflows':
+                        // Load workflows view
+                        viewContainer.innerHTML = `
+                            <div class="workflow-canvas">
+                                <!-- Workflow content here -->
+                            </div>
+                        `;
+                        break;
+                    case 'chat':
+                        // Load chat view
+                        viewContainer.innerHTML = `
+                            <div class="chat-container">
+                                <!-- Chat content here -->
+                            </div>
+                        `;
+                        break;
+                    case 'history':
+                        // Load history view
+                        viewContainer.innerHTML = `
+                            <div class="history-list">
+                                <!-- History content here -->
+                            </div>
+                        `;
+                        break;
+                    case 'settings':
+                        // Load settings view
+                        viewContainer.innerHTML = `
+                            <div class="settings-panel">
+                                <!-- Settings content here -->
+                            </div>
+                        `;
+                        break;
+                    default:
+                        viewContainer.innerHTML = `<p>View not found.</p>`;
+                }
+            } catch (error) {
+                console.error('Error loading view:', error);
+                viewContainer.innerHTML = `<p>Error loading view.</p>`;
+            }
+        }
